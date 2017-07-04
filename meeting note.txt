@@ -1,0 +1,11 @@
+# SimpleChinese
+ios app for chinese learner
+
+6/28
+establish team members
+decided project idea
+
+7/3 Meeting 
+finish release plan v1.0
+finish sprint 1 plan v1.0
+almost done with presentation slide except for chart
