@@ -26,6 +26,7 @@ class ViewController: UIViewController {
                 Character_field.text=myStrings[Charset_num]
                 Pinyin_field.text=myStrings[Charset_num+1]
                 Eng_def_field.text=myStrings[Charset_num+2]
+                UserDefaults.standard.set(1, forKey: myStrings[Charset_num])
                 myStrings2=myStrings
             }
             catch{
