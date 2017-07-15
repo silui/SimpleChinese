@@ -7,27 +7,42 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
     
-    var name = "CCCP"
+    @IBAction func BeginStudy(_ sender: Any)
+    {
+        let DoneStudying=UserDefaults.standard.bool(forKey: "DoneStudying")
+        let VocabDefined=UserDefaults.standard.bool(forKey: "VocabDefined")
+        if(DoneStudying==true)
+        {
+            performSegue(withIdentifier: "NavToQuiz", sender: self)
+        }
+        else if(VocabDefined==true)
+        {
+            performSegue(withIdentifier: "NavToStudy", sender: self)
+        }
+        else
+        {
+            performSegue(withIdentifier: "NavToNps", sender: self)
+        }
+    }
+    @IBAction func ToReview(_ sender: Any)
+    {
+    }
+
+    @IBAction func ResetUserDefault(_ sender: Any)
+    {
+        for key in Array(UserDefaults.standard.dictionaryRepresentation().keys)
+        {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
+    }
     
-    @IBAction func BeginStudy(_ sender: Any){
-         
-    }
-    @IBAction func ToReview(_ sender: Any) {
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
