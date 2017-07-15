@@ -7,16 +7,33 @@
 //
 
 import UIKit
-
 class ViewController: UIViewController {
     
-    var name = "CCCP"
+    @IBAction func BeginStudy(_ sender: Any)
+    {
+        if(UserDefaults.standard.bool(forKey: "VocabDefined")==false )
+        {
+            self.performSegue(withIdentifier: "SetVocab", sender: self)
+        }
+        else
+        {
+            self.performSegue(withIdentifier: "seguetoStudy", sender: self)
+        }
+    }
+    @IBAction func ToReview(_ sender: Any)
+    {
+        print(UserDefaults.standard.bool(forKey: "OverTime"))
+    }
+
+    @IBAction func ResetUserDefault(_ sender: Any)
+    {
+        for key in Array(UserDefaults.standard.dictionaryRepresentation().keys)
+        {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
+    }
     
-    @IBAction func BeginStudy(_ sender: Any){
-         
-    }
-    @IBAction func ToReview(_ sender: Any) {
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +44,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+
+
 
