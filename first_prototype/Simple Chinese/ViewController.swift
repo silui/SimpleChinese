@@ -11,18 +11,23 @@ class ViewController: UIViewController {
     
     @IBAction func BeginStudy(_ sender: Any)
     {
-        if(UserDefaults.standard.bool(forKey: "VocabDefined")==false )
+        let DoneStudying=UserDefaults.standard.bool(forKey: "DoneStudying")
+        let VocabDefined=UserDefaults.standard.bool(forKey: "VocabDefined")
+        if(DoneStudying==true)
         {
-            self.performSegue(withIdentifier: "SetVocab", sender: self)
+            performSegue(withIdentifier: "NavToQuiz", sender: self)
+        }
+        else if(VocabDefined==true)
+        {
+            performSegue(withIdentifier: "NavToStudy", sender: self)
         }
         else
         {
-            self.performSegue(withIdentifier: "seguetoStudy", sender: self)
+            performSegue(withIdentifier: "NavToNps", sender: self)
         }
     }
     @IBAction func ToReview(_ sender: Any)
     {
-        print(UserDefaults.standard.bool(forKey: "OverTime"))
     }
 
     @IBAction func ResetUserDefault(_ sender: Any)
@@ -39,12 +44,5 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
-
-
 

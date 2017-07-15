@@ -78,7 +78,6 @@
                                 </state>
                                 <connections>
                                     <action selector="ToReview:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Fi-F7-xAg"/>
-                                    <segue destination="hXY-Yp-L3o" kind="show" id="H1k-20-115"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bh-pN-Lbg">
@@ -96,8 +95,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="BNS-FC-qa1" kind="show" identifier="SetVocab" id="xD6-22-MRB"/>
-                        <segue destination="wah-SZ-wl5" kind="show" identifier="seguetoStudy" id="0tu-2v-kAy"/>
+                        <segue destination="BNS-FC-qa1" kind="show" identifier="NavToNps" id="xD6-22-MRB"/>
+                        <segue destination="wah-SZ-wl5" kind="show" identifier="NavToStudy" id="0tu-2v-kAy"/>
+                        <segue destination="hXY-Yp-L3o" kind="show" identifier="NavToQuiz" id="8PM-58-uPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -120,16 +120,9 @@
                                 <rect key="frame" x="91" y="396" width="192" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="vpd_slider_slide:" destination="BNS-FC-qa1" eventType="valueChanged" id="JLD-1b-e48"/>
+                                    <action selector="vps_slider_slide:" destination="BNS-FC-qa1" eventType="valueChanged" id="dFz-J8-vuE"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25 words per day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CY-iN-Ywo">
-                                <rect key="frame" x="72" y="323" width="232" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1st Grade set" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8G-dp-rJp">
                                 <rect key="frame" x="65" y="142" width="245" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,17 +143,24 @@
                                     <segue destination="wah-SZ-wl5" kind="show" id="5Ck-Xd-LgK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25 words per session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CY-iN-Ywo">
+                                <rect key="frame" x="36" y="269" width="303" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="vpd_display" destination="3CY-iN-Ywo" id="5wW-ys-UH6"/>
-                        <outlet property="vpd_slider" destination="dYr-VA-6l0" id="8mb-FS-yCZ"/>
+                        <outlet property="vps_display" destination="3CY-iN-Ywo" id="PeA-cb-ifi"/>
+                        <outlet property="vps_slider" destination="dYr-VA-6l0" id="EtB-KL-bHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiu-mf-lzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="283"/>
+            <point key="canvasLocation" x="1045.5999999999999" y="379.16041979010498"/>
         </scene>
         <!--View Controller Study-->
         <scene sceneID="2Ao-Ah-wJt">
@@ -175,7 +175,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Def" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyy-y8-1cK">
-                                <rect key="frame" x="105" y="495" width="163" height="101"/>
+                                <rect key="frame" x="105" y="421" width="163" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
@@ -188,8 +188,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Char" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZp-gu-G5l">
+                                <rect key="frame" x="37" y="113" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="113"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="米字" translatesAutoresizingMaskIntoConstraints="NO" id="oMs-GG-5Q6">
-                                <rect key="frame" x="16" y="135" width="343" height="309"/>
+                                <rect key="frame" x="36" y="113" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BG-u2-aka">
@@ -218,13 +225,18 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Ca6-kp-ybb"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Char" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZp-gu-G5l">
-                                <rect key="frame" x="15" y="135" width="343" height="309"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaW-AR-xvE">
+                                <rect key="frame" x="300" y="574" width="59" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="113"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="1" green="0.061051347087132224" blue="0.90646523154165126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Quiz">
+                                    <color key="titleColor" red="1" green="0.95065055649871288" blue="0.92430970143036295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="QuizButtonPressed:" destination="wah-SZ-wl5" eventType="touchUpInside" id="0DM-Hc-YUY"/>
+                                    <segue destination="hXY-Yp-L3o" kind="show" id="umZ-bK-1df"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -234,16 +246,17 @@
                         <outlet property="NextBut" destination="UDe-RW-MCw" id="FuK-hq-8yZ"/>
                         <outlet property="PinyinField" destination="wQm-E9-nLu" id="4Qp-DD-lX1"/>
                         <outlet property="PrevBut" destination="1BG-u2-aka" id="GqC-LB-9V5"/>
+                        <outlet property="QuizButton" destination="zaW-AR-xvE" id="zGT-5H-rd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Aw-ZI-HTX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1996" y="-284"/>
+            <point key="canvasLocation" x="2065" y="-19"/>
         </scene>
-        <!--View Controller Review-->
+        <!--View Controller Quiz-->
         <scene sceneID="EMg-T5-ox0">
             <objects>
-                <viewController id="hXY-Yp-L3o" customClass="ViewControllerReview" customModule="Simple_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hXY-Yp-L3o" customClass="ViewControllerQuiz" customModule="Simple_Chinese" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="45V-Il-hK3"/>
                         <viewControllerLayoutGuide type="bottom" id="BYv-bM-Hyt"/>
@@ -279,7 +292,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Character" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NGe-Yx-X2g">
                                 <rect key="frame" x="16" y="70" width="343" height="309"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -316,7 +329,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Menu"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="fzz-kp-Itj"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="cmr-ju-sfe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pin Yin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu1-cd-jf6">
@@ -341,7 +354,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBj-LD-fAX" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="906"/>
+            <point key="canvasLocation" x="2959" y="465"/>
         </scene>
     </scenes>
     <resources>
@@ -352,7 +365,8 @@
         <image name="米字" width="502" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="cmr-ju-sfe"/>
+        <segue reference="umZ-bK-1df"/>
         <segue reference="0tu-2v-kAy"/>
-        <segue reference="Ca6-kp-ybb"/>
     </inferredMetricsTieBreakers>
 </document>
