@@ -40,6 +40,15 @@ class ViewControllerQuiz: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ansA.layer.borderWidth=1
+        ansA.layer.borderColor=UIColor.black.cgColor
+        ansB.layer.borderWidth=1
+        ansB.layer.borderColor=UIColor.black.cgColor
+        ansC.layer.borderWidth=1
+        ansC.layer.borderColor=UIColor.black.cgColor
+        ansD.layer.borderWidth=1
+        ansD.layer.borderColor=UIColor.black.cgColor
+        
         
         LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
         
