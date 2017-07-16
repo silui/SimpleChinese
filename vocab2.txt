@@ -66,9 +66,9 @@
 远 yuǎn far away
 定 dìng calm，decide
 向 xiàng direction
-以 yǐ because of，to
+以 yǐ because of,to
 后 hòu after
-更 gèng further，more
+更 gèng further,more
 主 zhǔ owner
 意 yì desire
 总 zǒng general
@@ -130,7 +130,7 @@
 脸 liǎn face
 阳 yáng sun
 光 guāng light
-可 kě can，approve
+可 kě can,approve
 石 shí stone
 办 bàn do
 法 fǎ law
