@@ -16,6 +16,7 @@
 		630A2D371F11B5970054C3A0 /* LoadVocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A2D361F11B5970054C3A0 /* LoadVocab.swift */; };
 		6C1253B61F15539700AE2353 /* ViewControllerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */; };
 		6C1253B81F18811F00AE2353 /* ViewControllerQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1253B71F18811F00AE2353 /* ViewControllerQuiz.swift */; };
+		FB8FBAC11F1C8E0500385D15 /* ViewControllerConclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */; };
 		FB91B5E71F1C042400CF109C /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91B5E61F1C042400CF109C /* OverViewController.swift */; };
 		FB91B5E91F1C048500CF109C /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91B5E81F1C048400CF109C /* OverViewCell.swift */; };
 		FBD05EB31F197C64000A9B92 /* vpd_vocabsetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */; };
@@ -34,6 +35,7 @@
 		630A2D361F11B5970054C3A0 /* LoadVocab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadVocab.swift; sourceTree = "<group>"; };
 		6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerStudy.swift; sourceTree = "<group>"; };
 		6C1253B71F18811F00AE2353 /* ViewControllerQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerQuiz.swift; sourceTree = "<group>"; };
+		FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConclusion.swift; sourceTree = "<group>"; };
 		FB91B5E61F1C042400CF109C /* OverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		FB91B5E81F1C048400CF109C /* OverViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
 		FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vpd_vocabsetController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				29BE61B31F1425D200D29511 /* LaunchScreen.storyboard */,
 				29BE61B61F1425D200D29511 /* Info.plist */,
 				29BE61AA1F1425D200D29511 /* AppDelegate.swift */,
+				FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */,
 			);
 			path = "Simple Chinese";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				6C1253B61F15539700AE2353 /* ViewControllerStudy.swift in Sources */,
 				FBD05EB31F197C64000A9B92 /* vpd_vocabsetController.swift in Sources */,
 				29BE61AD1F1425D200D29511 /* ViewController.swift in Sources */,
+				FB8FBAC11F1C8E0500385D15 /* ViewControllerConclusion.swift in Sources */,
 				FB91B5E91F1C048500CF109C /* OverViewCell.swift in Sources */,
 				FB91B5E71F1C042400CF109C /* OverViewController.swift in Sources */,
 				6C1253B81F18811F00AE2353 /* ViewControllerQuiz.swift in Sources */,

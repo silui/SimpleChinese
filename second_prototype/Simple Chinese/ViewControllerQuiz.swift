@@ -26,14 +26,12 @@ class ViewControllerQuiz: UIViewController {
     var correctAnswer = 0       //position of correct answer
     
     var myStrings : [String]=[]
-    var numOfClicks = 0
     
     var randomIndexArray :[Int]=[]
     var current=0           //mystring index for current char
     
-    //for conclusionUI
-    var numOfRight = 0
-    var numOfWrong = 0
+    var passChar :[String] = []
+    var passTorF :[Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +51,9 @@ class ViewControllerQuiz: UIViewController {
         let upperbound=UserDefaults.standard.integer(forKey: "TargetProgress")
         let vps=UserDefaults.standard.integer(forKey: "vps")
         current=upperbound - 3*(vps-1)
+        correctAnswer=randomAnswerPlace()
         
-        
-        label_Character.text=myStrings[current]
-        label_PInYin.text=myStrings[current+1]
-        correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
+        DisplayNewSet()
         randomAnswer()      //get mystrings index for wrong answer
         putrandomanswer()       //set title for answers
         
@@ -148,14 +144,22 @@ class ViewControllerQuiz: UIViewController {
             if Answertag == correctAnswer
             {
                 result.text = "Correct"
-                numOfRight = numOfRight + 1
+                passTorF.append(true)
             }
             else
             {
                 result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-                numOfWrong = numOfWrong + 1
+                passTorF.append(false)
             }
-            nextProb.isHidden = false
+            if(current == UserDefaults.standard.integer(forKey: "TargetProgress"))
+            {
+                nextProb.isHidden = true
+                ConclusionUI.isHidden = false
+            }
+            else{
+                nextProb.isHidden = false
+            }
+            
         }
     }
     
@@ -163,34 +167,30 @@ class ViewControllerQuiz: UIViewController {
     {
         current = current + 3
         randomIndexArray = []
-        let vps=UserDefaults.standard.integer(forKey: "vps")
-        numOfClicks = numOfClicks + 1
         result.isHidden = true
         nextProb.isHidden = true
+        
         correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
         randomAnswer()      //get mystrings index for wrong answer
         putrandomanswer()       //set title for answers
+        DisplayNewSet()
         
-        
-        if(numOfClicks < vps)
-        {
-            DisplayNewSet()
-        }
-        else
-        {
-            ConclusionUI.isHidden = false
-        }
-        
-        //print("numOfClicks: \(numOfClicks), vps: \(vps), current: \(current)")
     }
     
     func DisplayNewSet()
     {
-        
         label_Character.text=myStrings[current]
+        passChar.append(myStrings[current])
         label_PInYin.text=myStrings[current+1]
         randomAnswer()
     }
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var passData = segue.destination as! ViewControllerConclusion
+        passData.passChar = passChar
+        passData.passTorF = passTorF
+        
+    }*/
     
 }
 
