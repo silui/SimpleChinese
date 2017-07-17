@@ -63,10 +63,10 @@
 听 tīng listen
 唱 chàng sing
 连 lián connect
-远 yuǎn far away
+远 yuǎn faraway
 定 dìng calm,decide
 向 xiàng direction
-以 yǐ because of,to
+以 yǐ becauseof,to
 后 hòu after
 更 gèng further,more
 主 zhǔ owner
@@ -83,7 +83,7 @@
 专 zhuān special
 才 cái ability
 级 jí level
-队 duì queue 
+队 duì queue
 蚁 yǐ ant
 前 qián front
 空 kōng empty
@@ -165,7 +165,7 @@
 边 biān edge
 这 zhè this
 进 jìn enter
-道 dào way,road 
+道 dào way,road
 贝 bèi shellfish,cowry
 原 yuán basic
 男 nán man

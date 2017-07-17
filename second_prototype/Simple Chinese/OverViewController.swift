@@ -40,14 +40,15 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return myStrings.count/3
         }
-        
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
+            
             cell.Char_Field.text=myStrings[indexPath.row*3]
             cell.PinYin_Field.text=myStrings[indexPath.row*3+1]
             cell.Def_Field.text=myStrings[indexPath.row*3+2]
             return cell
         }
+        TableView.reloadData()
         self.TableView.isHidden=false
     }
     
