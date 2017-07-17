@@ -11,6 +11,7 @@ class LoadVocab
 {
     static func PutInArrayCustom( ArrayRef:inout [String], set: Int)
     {
+        
         if(set==1){
             if let path = Bundle.main.path(forResource: "1stGrade", ofType: "txt")
             {
@@ -29,6 +30,22 @@ class LoadVocab
         else if (set==2)
         {
             if let path = Bundle.main.path(forResource: "2ndGrade", ofType: "txt")
+            {
+                do
+                {
+                    let data = try String(contentsOfFile: path, encoding: .utf8)
+                    ArrayRef = data.components(separatedBy: .whitespacesAndNewlines)
+                    //myStrings contain the whole txt parced into array
+                }
+                catch
+                {
+                    print("error")
+                }
+            }
+        }
+        else if (set==3)
+        {
+            if let path = Bundle.main.path(forResource: "Test1", ofType: "txt")
             {
                 do
                 {

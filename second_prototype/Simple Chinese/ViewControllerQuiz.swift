@@ -145,11 +145,51 @@ class ViewControllerQuiz: UIViewController {
             {
                 result.text = "Correct"
                 passTorF.append(true)
+                
+                
             }
             else
             {
                 result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
                 passTorF.append(false)
+            
+                //pick incorrect options goes here
+                let fileName = "Test1"
+                let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                
+                let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+                print("FilePath: \(fileURL.path)")
+                
+                //copy the previous text content
+                var originalText = ""
+                do {
+                    originalText = try String(contentsOf: fileURL, encoding: String.Encoding.utf8)
+                } catch let error as NSError {
+                    print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+                }
+                
+                //copy of the total context.
+                let toPutIn = myStrings[current]+" "+myStrings[current+1]+" "+myStrings[current+2]+"\n"
+                let writeString = originalText + "\n" + toPutIn
+                
+                do {
+                    // Write to the file
+                    try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+                } catch let error as NSError {
+                    print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
+                }
+                
+                var readString = "" // Used to store the file contents
+                do {
+                    // Read the file contents
+                    readString = try String(contentsOf: fileURL)
+                } catch let error as NSError {
+                    print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+                }
+                print("File Text: \(readString)")
+                //end of list incorrect char
+                
+                
             }
             if(current == UserDefaults.standard.integer(forKey: "TargetProgress"))
             {

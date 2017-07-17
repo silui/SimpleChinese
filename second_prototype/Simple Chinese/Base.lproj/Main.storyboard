@@ -347,6 +347,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dor-Gd-SRZ" appends="YES" id="Qgm-pk-aCo"/>
+                            <outletCollection property="gestureRecognizers" destination="Glk-oe-jvx" appends="YES" id="ydg-Xo-T0C"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="CharField" destination="MZp-gu-G5l" id="y0O-KZ-i9b"/>
@@ -358,6 +363,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Aw-ZI-HTX" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="dor-Gd-SRZ">
+                    <connections>
+                        <action selector="PrevVocab:" destination="wah-SZ-wl5" id="hDa-XX-nwV"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="Glk-oe-jvx">
+                    <connections>
+                        <action selector="NextVocab:" destination="wah-SZ-wl5" id="vkR-oF-1mI"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2064.8000000000002" y="-19.340329835082461"/>
         </scene>
@@ -556,8 +571,8 @@
         <image name="米字" width="502" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6Ci-Ld-cLw"/>
-        <segue reference="Uch-u3-CVb"/>
+        <segue reference="Ca6-kp-ybb"/>
         <segue reference="0tu-2v-kAy"/>
+        <segue reference="2HX-9i-uFR"/>
     </inferredMetricsTieBreakers>
 </document>

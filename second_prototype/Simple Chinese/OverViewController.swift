@@ -11,7 +11,7 @@ import UIKit
 class OverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate{
 
     var myStrings : [String]=[]
-    let VocabSet=["1st Grade", "2nd Grade"]
+    let VocabSet=["1st Grade", "2nd Grade","Test1"]
     var Defaultselect=1
     
     @IBOutlet weak var PickerView: UIPickerView!
