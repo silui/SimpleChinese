@@ -112,13 +112,19 @@ class ViewControllerStudy: UIViewController {
         LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
         DisplayNewSet()
         let vps=UserDefaults.standard.integer(forKey: "vps")
-        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")
+        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
         let target=UserDefaults.standard.integer(forKey: "TargetProgress")
         let lowerbound : Int = target-(vps*3)+3
         let NeedNewSet=UserDefaults.standard.bool(forKey: "NeedNewSet")
         let QuizButtonShowed : Bool = UserDefaults.standard.bool(forKey: "QuizButtonShowed")
-        print(lowerbound)
-        if(current==target && target==0)  //first time user, set set target
+        if(NeedNewSet==true)
+        {
+            print("lower bound:\(lowerbound) target:\(target)")
+            UserDefaults.standard.set(lowerbound, forKey: "ArrayProgress")
+            current=lowerbound
+            UserDefaults.standard.set(false, forKey: "NeedNewSet")
+        }
+        else if(current==target && target==0)  //first time user, set set target
         {
             UserDefaults.standard.set(vps*3-3, forKey: "TargetProgress")
             PrevBut.isHidden=true

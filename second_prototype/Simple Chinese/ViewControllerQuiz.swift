@@ -195,6 +195,12 @@ class ViewControllerQuiz: UIViewController {
             {
                 nextProb.isHidden = true
                 ConclusionUI.isHidden = false
+                UserDefaults.standard.set(false, forKey: "DoneStudying")
+                let current=UserDefaults.standard.integer(forKey: "TargetProgress")
+                let vps=UserDefaults.standard.integer(forKey: "vps")
+                UserDefaults.standard.set((vps*3)+current, forKey: "TargetProgress")
+                UserDefaults.standard.set(true, forKey: "NeedNewSet")
+                
             }
             else{
                 nextProb.isHidden = false
