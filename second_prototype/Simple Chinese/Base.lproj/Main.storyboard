@@ -458,7 +458,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Conclusion"/>
                                 <connections>
-                                    <segue destination="Wm9-MW-kZM" kind="show" id="Xzr-cj-E9q"/>
+                                    <segue destination="Wm9-MW-kZM" kind="show" identifier="QuizToConclusion" id="Xzr-cj-E9q"/>
                                 </connections>
                             </button>
                         </subviews>

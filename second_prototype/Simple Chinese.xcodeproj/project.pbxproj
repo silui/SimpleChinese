@@ -76,6 +76,7 @@
 				FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */,
 				6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */,
 				6C1253B71F18811F00AE2353 /* ViewControllerQuiz.swift */,
+				FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */,
 				FB91B5E61F1C042400CF109C /* OverViewController.swift */,
 				FB91B5E81F1C048400CF109C /* OverViewCell.swift */,
 				630A2D361F11B5970054C3A0 /* LoadVocab.swift */,
@@ -85,7 +86,6 @@
 				29BE61B31F1425D200D29511 /* LaunchScreen.storyboard */,
 				29BE61B61F1425D200D29511 /* Info.plist */,
 				29BE61AA1F1425D200D29511 /* AppDelegate.swift */,
-				FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */,
 			);
 			path = "Simple Chinese";
 			sourceTree = "<group>";

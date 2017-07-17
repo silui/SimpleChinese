@@ -184,13 +184,16 @@ class ViewControllerQuiz: UIViewController {
         label_PInYin.text=myStrings[current+1]
         randomAnswer()
     }
-    /*
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var passData = segue.destination as! ViewControllerConclusion
-        passData.passChar = passChar
-        passData.passTorF = passTorF
-        
-    }*/
+        if(segue.identifier=="QuizToConclusion")
+        {
+            let passData = segue.destination as! ViewControllerConclusion
+            passData.passChar = passChar
+            passData.passTorF = passTorF
+        }
+    }
     
+
 }
 
