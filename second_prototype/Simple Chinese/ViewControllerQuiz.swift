@@ -23,15 +23,13 @@ class ViewControllerQuiz: UIViewController {
     
     @IBOutlet weak var button_ReturnToMain: UIButton!
     
+    var correctAnswer = 0       //position of correct answer
     
     var myStrings : [String]=[]
-    let vps = UserDefaults.standard.integer(forKey: "vps")
     var numOfClicks = 0
     
-    var random1 = 1000
-    var random2 = 1000
-    var random3 = 1000
-    var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
+    var randomIndexArray :[Int]=[]
+    var current=0           //mystring index for current char
     
     //for conclusionUI
     var numOfRight = 0
@@ -52,19 +50,71 @@ class ViewControllerQuiz: UIViewController {
         
         LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
         
+        let upperbound=UserDefaults.standard.integer(forKey: "TargetProgress")
+        let vps=UserDefaults.standard.integer(forKey: "vps")
+        current=upperbound - 3*(vps-1)
+        
+        
         label_Character.text=myStrings[current]
         label_PInYin.text=myStrings[current+1]
-        randomAnswer()
+        correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
+        randomAnswer()      //get mystrings index for wrong answer
+        putrandomanswer()       //set title for answers
         
     }
+    
+    
+    func putrandomanswer()
+    {
+        var arrayWalker=0
+        if(correctAnswer==1)
+        {
+            ansA.setTitle(myStrings[current+2], for: .normal)
+        }
+        else
+        {
+            ansA.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+            arrayWalker+=1
+        }
+        if(correctAnswer==2)
+        {
+            ansB.setTitle(myStrings[current+2], for: .normal)
+        }
+        else
+        {
+            ansB.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+            arrayWalker+=1
+        }
+        if(correctAnswer==3)
+        {
+            ansC.setTitle(myStrings[current+2], for: .normal)
+        }
+        else
+        {
+            ansC.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+            arrayWalker+=1
+        }
+        if(correctAnswer==4)
+        {
+            ansD.setTitle(myStrings[current+2], for: .normal)
+        }
+        else
+        {
+            ansD.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+            arrayWalker+=1
+        }
+    }
+    
+    
+    
     
     //Random for wrong explanation
     func randomAnswer()
     {
         let upperbound=UInt32((myStrings.count-3)/3)
-        random1 = 3*Int(arc4random_uniform(upperbound))+2
-        random2 = 3*Int(arc4random_uniform(upperbound))+2
-        random3 = 3*Int(arc4random_uniform(upperbound))+2
+        var random1 = 3*Int(arc4random_uniform(upperbound))+2
+        var random2 = 3*Int(arc4random_uniform(upperbound))+2
+        var random3 = 3*Int(arc4random_uniform(upperbound))+2
         if random1 == current+2
         {
             random1 = 3*Int(arc4random_uniform(upperbound))+2
@@ -77,97 +127,68 @@ class ViewControllerQuiz: UIViewController {
         {
             random3 = 3*Int(arc4random_uniform(upperbound))+2
         }
-        
-        ansA.setTitle(myStrings[current+2], for: .normal)
-        ansB.setTitle(myStrings[random1], for: .normal)
-        ansC.setTitle(myStrings[random2], for: .normal)
-        ansD.setTitle(myStrings[random3], for: .normal)
+        randomIndexArray.append(random1)
+        randomIndexArray.append(random2)
+        randomIndexArray.append(random3)
     }
     
-    @IBAction func answerA(_ sender: Any)
+    func randomAnswerPlace()->Int
     {
-        result.isHidden = false
-        if myStrings[current+2] == myStrings[current+2]
-        {
-            result.text = "Correct"
-            numOfRight += numOfRight
-        }
-        else
-        {
-            result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-            numOfWrong += numOfWrong
-        }
-        nextProb.isHidden = false
+        let randomPlace = arc4random_uniform(4) + 1
+        return Int(randomPlace)
+        //随机return1-4的value
     }
-    @IBAction func answerB(_ sender: Any)
+    
+    @IBAction func pickAnswer(_ sender: Any)
     {
-        result.isHidden = false
-        if myStrings[random1] == myStrings[current+2]
+        if(result.isHidden == true)
         {
-            result.text = "Correct"
-            numOfRight += numOfRight
+            let Answertag:Int = (sender as AnyObject).tag
+            result.isHidden = false
+            if Answertag == correctAnswer
+            {
+                result.text = "Correct"
+                numOfRight = numOfRight + 1
+            }
+            else
+            {
+                result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
+                numOfWrong = numOfWrong + 1
+            }
+            nextProb.isHidden = false
         }
-        else
-        {
-            result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-            numOfWrong += numOfWrong
-        }
-        nextProb.isHidden = false
-    }
-    @IBAction func answerC(_ sender: Any)
-    {
-        result.isHidden = false
-        if myStrings[random2] == myStrings[current+2]
-        {
-            result.text = "Correct"
-            numOfRight += numOfRight
-        }
-        else
-        {
-            result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-            numOfWrong += numOfWrong
-        }
-        nextProb.isHidden = false
-    }
-    @IBAction func answerD(_ sender: Any)
-    {
-        result.isHidden = false
-        if myStrings[random3] == myStrings[current+2]
-        {
-            result.text = "Correct"
-            numOfRight += numOfRight
-        }
-        else
-        {
-            result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-            numOfWrong += numOfWrong
-        }
-        nextProb.isHidden = false
     }
     
     @IBAction func nextProb(_ sender: Any)
     {
+        current = current + 3
+        randomIndexArray = []
+        let vps=UserDefaults.standard.integer(forKey: "vps")
         numOfClicks = numOfClicks + 1
         result.isHidden = true
         nextProb.isHidden = true
-        current = current + 3
-        //print("numOfClicks: \(numOfClicks), vps: \(vps), current: \(current)")
+        correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
+        randomAnswer()      //get mystrings index for wrong answer
+        putrandomanswer()       //set title for answers
+        
+        
         if(numOfClicks < vps)
         {
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")+3, forKey: "ArrayProgress")
             DisplayNewSet()
         }
         else
         {
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")+3, forKey: "ArrayProgress")
             ConclusionUI.isHidden = false
         }
+        
+        //print("numOfClicks: \(numOfClicks), vps: \(vps), current: \(current)")
     }
     
     func DisplayNewSet()
     {
-        label_Character.text=myStrings[UserDefaults.standard.integer(forKey: "ArrayProgress")]
-        label_PInYin.text=myStrings[UserDefaults.standard.integer(forKey: "ArrayProgress")+1]
+        
+        label_Character.text=myStrings[current]
+        label_PInYin.text=myStrings[current+1]
         randomAnswer()
     }
     
