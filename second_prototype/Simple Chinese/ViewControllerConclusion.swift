@@ -11,11 +11,9 @@ import UIKit
 class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
-    @IBOutlet weak var Char: UILabel!
-    @IBOutlet weak var TorF: UILabel!
-    
-    var passChar :[String] = []
-    var passTorF :[Bool] = []
+
+    var passChar : [String] = []
+    var passTorF : [Bool] = []
     
     
     
@@ -26,8 +24,18 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = passChar[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+            as! ConclusionCell
+        if(passTorF[indexPath.row] == true)
+        {
+            cell.TorF.text="⭕️"
+        }
+        else
+        {
+            cell.TorF.text="❌"
+        }
+        cell.Character.text=passChar[indexPath.row]
+        
         
         return(cell)
     }
@@ -45,15 +53,5 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
