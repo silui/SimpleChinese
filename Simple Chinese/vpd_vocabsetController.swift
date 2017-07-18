@@ -8,8 +8,21 @@
 
 import UIKit
 
-class vpd_vocabsetController: UIViewController {
+class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
+    let VocabSet=["1st Grade", "2nd Grade"]
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return VocabSet[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return VocabSet.count
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        UserDefaults.standard.set(row+1, forKey: "VocabSet")
+    }
     @IBOutlet weak var vps_display: UILabel!
     @IBOutlet weak var vps_slider: UISlider!
     var vps=25
@@ -27,14 +40,10 @@ class vpd_vocabsetController: UIViewController {
         UserDefaults.standard.set(0, forKey: "ArrayProgress")
 }
     
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set(1, forKey: "VocabSet")
     }
 
 }

@@ -48,13 +48,21 @@ class ViewControllerStudy: UIViewController {
         }
         target=UserDefaults.standard.integer(forKey: "TargetProgress")
         current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        print ("target:\(target) current:\(current) Lower: \(lowerbound) vps: \(vps)")
+        if(lowerbound==current)
+        {
+            PrevBut.isHidden=true
+        }
+        else
+        {
+            NextBut.isHidden=false
+            PrevBut.isHidden=false
+        }
     }
 
     @IBAction func NextVocab(_ sender: Any)
     {
-        let target=UserDefaults.standard.integer(forKey: "TargetProgress")//上限
-        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")//现在看到哪里了
+        var target=UserDefaults.standard.integer(forKey: "TargetProgress")
+        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
         let QuizButtonShowed=UserDefaults.standard.bool(forKey: "QuizButtonShowed")
         if(QuizButtonShowed==true)
         {
@@ -76,6 +84,17 @@ class ViewControllerStudy: UIViewController {
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")+3, forKey: "ArrayProgress")
             DisplayNewSet()
         }
+        target=UserDefaults.standard.integer(forKey: "TargetProgress")
+        current=UserDefaults.standard.integer(forKey: "ArrayProgress")
+        if(target==current)
+        {
+            NextBut.isHidden=true
+        }
+        else
+        {
+            PrevBut.isHidden=false
+            NextBut.isHidden=false
+        }
 
     }
     
@@ -90,23 +109,38 @@ class ViewControllerStudy: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        loadVocabSet()
+        LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
         DisplayNewSet()
         let vps=UserDefaults.standard.integer(forKey: "vps")
-        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")
+        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
         let target=UserDefaults.standard.integer(forKey: "TargetProgress")
+        let lowerbound : Int = target-(vps*3)+3
         let NeedNewSet=UserDefaults.standard.bool(forKey: "NeedNewSet")
         let QuizButtonShowed : Bool = UserDefaults.standard.bool(forKey: "QuizButtonShowed")
-        if(current==target && target==0)  //first time user, set set target
+        if(NeedNewSet==true)
+        {
+            //print("lower bound:\(lowerbound) target:\(target)")
+            UserDefaults.standard.set(lowerbound, forKey: "ArrayProgress")
+            current=lowerbound
+            UserDefaults.standard.set(false, forKey: "NeedNewSet")
+        }
+        else if(current==target && target==0)  //first time user, set set target
         {
             UserDefaults.standard.set(vps*3-3, forKey: "TargetProgress")
+            PrevBut.isHidden=true
         }
         else if(NeedNewSet==true)       //finished quiz and need new set
         {
             UserDefaults.standard.set(target+vps*3, forKey: "TargetProgress")
+            PrevBut.isHidden=true
         }
         else if (current==target)   //just so happen he is lookat the last vocab in the range
         {
+            NextBut.isHidden=true
+        }
+        else if (current==lowerbound)
+        {
+            PrevBut.isHidden=true
         }
         if(QuizButtonShowed==true)
         {
@@ -114,20 +148,4 @@ class ViewControllerStudy: UIViewController {
         }
     }
     
-    func loadVocabSet()
-    {
-        if let path = Bundle.main.path(forResource: "1stGrade", ofType: "txt")
-        {
-            do
-            {
-                let data = try String(contentsOfFile: path, encoding: .utf8)
-                myStrings = data.components(separatedBy: .whitespacesAndNewlines)
-                //myStrings contain the whole txt parced into array
-            }
-            catch
-            {
-                print("error")
-            }
-        }
-    }
 }
