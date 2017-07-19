@@ -58,12 +58,12 @@
 语 yǔ say
 千 qiān thouand
 李 lǐ plum
-秀 xiù elegant,outstanding
+秀 xiù elegant
 香 xiāng delicious
 听 tīng listen
 唱 chàng sing
 连 lián connect
-远 yuǎn far away
+远 yuǎn faraway
 定 dìng calm,decide
 向 xiàng direction
 以 yǐ because of,to
@@ -83,7 +83,7 @@
 专 zhuān special
 才 cái ability
 级 jí level
-队 duì queue 
+队 duì queue
 蚁 yǐ ant
 前 qián front
 空 kōng empty
@@ -106,16 +106,12 @@
 过 guò pass
 时 shí time
 让 ràng let
-吗 ma modal－verbs
-吧 ba modal－verbs
 虫 chóng insect
 往 wǎng go,past
 得 dé get
 很 hěn very
 河 hé river
 姐 jiě sister
-借 jiè borrow
-呢 ne modal－verbs
 呀 ya modal－verbs
 哪 nǎ where
 谁 shuí who
@@ -165,8 +161,8 @@
 边 biān edge
 这 zhè this
 进 jìn enter
-道 dào way,road 
-贝 bèi shellfish,cowry
+道 dào way,road
+贝 bèi shellfish
 原 yuán basic
 男 nán man
 爱 ài love
@@ -179,7 +175,7 @@
 老 lǎo old
 师 shī teacher
 短 duǎn short
-对 duì right,couple,to
+对 duì right,couple
 冷 lěng cold
 淡 dàn light
 热 rè hot
@@ -244,7 +240,10 @@
 宜 yí suitable
 实 shí truly
 色 sè colour
-华 huá China,flourishing
+华 huá China
 谷 gǔ grain
 金 jīn gold
 尽 jìn finish
+层 céng storey
+丰 fēng lush
+壮 zhuàng strong
