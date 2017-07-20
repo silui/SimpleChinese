@@ -22,130 +22,89 @@ class ViewControllerStudy: UIViewController {
     
     @IBAction func QuizButtonPressed(_ sender: Any)
     {
-        UserDefaults.standard.set(true, forKey: "DoneStudying")
-        let vps=UserDefaults.standard.integer(forKey: "vps")
-        let target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        UserDefaults.standard.set(target-(vps*3)+3, forKey: "ArrayProgress")
+        UserDefaults.standard.set(true, forKey: "NavToQuiz")
+        UserDefaults.standard.set(false, forKey: "NavToStudy")
     }
     @IBAction func PrevVocab(_ sender: Any)
     {
-        var target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        let vps=UserDefaults.standard.integer(forKey: "vps")
-        let lowerbound : Int = target-(vps*3)+3
-        let QuizButtonShowed=UserDefaults.standard.bool(forKey: "QuizButtonShowed")
-        if(QuizButtonShowed==true)
-        {
-            QuizButton.isHidden=false
-        }
+        let lowerbound=UserDefaults.standard.integer(forKey: "LowerBound")
+        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")
         if(current==lowerbound)
         {
+            print("ERROR: Class: ViewControllerStudy, func:PrevVocab, cond: current=lowerbound\nComment: prevbutton should already be hidden when lowerbound=current")
+            
         }
-        else
-        {
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")-3, forKey: "ArrayProgress")
-            DisplayNewSet()
-        }
-        target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        if(lowerbound==current)
-        {
-            PrevBut.isHidden=true
-        }
-        else
-        {
-            NextBut.isHidden=false
-            PrevBut.isHidden=false
-        }
+        UserDefaults.standard.set(current-3, forKey: "ArrayProgress")
+        DisplayNewSet()
+        checkbutton()
     }
 
     @IBAction func NextVocab(_ sender: Any)
     {
-        var target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        let QuizButtonShowed=UserDefaults.standard.bool(forKey: "QuizButtonShowed")
-        if(QuizButtonShowed==true)
-        {
-            QuizButton.isHidden=false
-        }
+        let target=UserDefaults.standard.integer(forKey: "TargetProgress")
+        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")
         if(target==current)
         {
+            print("ERROR: Class: ViewControllerStudy, func:NextVocab, cond: target=current\nComment: nextbutton should already be hidden when target=current")
         }
-        else if(target-3==current)
-        {
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")+3, forKey: "ArrayProgress")
-            DisplayNewSet()
-            QuizButton.isHidden=false
-            UserDefaults.standard.set(true, forKey: "QuizButtonShowed")
-
-        }
-        else
-        {
-            UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "ArrayProgress")+3, forKey: "ArrayProgress")
-            DisplayNewSet()
-        }
-        target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        if(target==current)
-        {
-            NextBut.isHidden=true
-        }
-        else
-        {
-            PrevBut.isHidden=false
-            NextBut.isHidden=false
-        }
+        UserDefaults.standard.set(current+3, forKey: "ArrayProgress")
+        DisplayNewSet()
+        checkbutton()
 
     }
     
     func DisplayNewSet()
     {
-        CharField.text=myStrings[UserDefaults.standard.integer(forKey: "ArrayProgress")]
-        PinyinField.text=myStrings[UserDefaults.standard.integer(forKey: "ArrayProgress")+1]
-        DefField.text=myStrings[UserDefaults.standard.integer(forKey: "ArrayProgress")+2]
+        let arraywalker=UserDefaults.standard.integer(forKey: "ArrayProgress")
+        CharField.text=myStrings[arraywalker]
+        PinyinField.text=myStrings[arraywalker+1]
+        DefField.text=myStrings[arraywalker+2]
+        
+    }
+    func checkbutton()
+    {
+        let lower=UserDefaults.standard.integer(forKey: "LowerBound")
+        let current=UserDefaults.standard.integer(forKey: "ArrayProgress")
+        let upper=UserDefaults.standard.integer(forKey: "TargetProgress")
+        if(current==lower){
+            PrevBut.isHidden=true
+        }
+        else{
+            PrevBut.isHidden=false
+        }
+        if(current==upper){
+            NextBut.isHidden=true
+            UserDefaults.standard.set(true, forKey: "QuizButtonShowed")
+        }
+        else{
+            NextBut.isHidden=false
+        }
+        let QuizButtonShowed : Bool = UserDefaults.standard.bool(forKey: "QuizButtonShowed")
+        QuizButton.isHidden = !QuizButtonShowed
     }
 
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
         LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
-        DisplayNewSet()
         let vps=UserDefaults.standard.integer(forKey: "vps")
-        var current=UserDefaults.standard.integer(forKey: "ArrayProgress")
-        let target=UserDefaults.standard.integer(forKey: "TargetProgress")
-        let lowerbound : Int = target-(vps*3)+3
-        let NeedNewSet=UserDefaults.standard.bool(forKey: "NeedNewSet")
-        let QuizButtonShowed : Bool = UserDefaults.standard.bool(forKey: "QuizButtonShowed")
-        if(NeedNewSet==true)
+        var target=UserDefaults.standard.integer(forKey: "TargetProgress")
+        let NeedNewSet=UserDefaults.standard.bool(forKey: "NeedNewSet") //meaning done need anther set of vocab with vps or less than vps amount
+        if(NeedNewSet)
         {
-            print("lower bound:\(lowerbound) target:\(target)")
-            UserDefaults.standard.set(lowerbound, forKey: "ArrayProgress")
-            current=lowerbound
+            let ideaupperbound=target+vps*3
+            target+=3
+            UserDefaults.standard.set(target, forKey: "LowerBound")
+            UserDefaults.standard.set(target, forKey: "ArrayProgress")
+            let stingupperbound=myStrings.count-4
+            print(myStrings.count)
+            UserDefaults.standard.set(min(ideaupperbound, stingupperbound), forKey: "TargetProgress")
             UserDefaults.standard.set(false, forKey: "NeedNewSet")
+            UserDefaults.standard.set(false, forKey: "QuizButtonShowed")
         }
-        else if(current==target && target==0)  //first time user, set set target
-        {
-            UserDefaults.standard.set(vps*3-3, forKey: "TargetProgress")
-            PrevBut.isHidden=true
-        }
-        else if(NeedNewSet==true)       //finished quiz and need new set
-        {
-            UserDefaults.standard.set(target+vps*3, forKey: "TargetProgress")
-            PrevBut.isHidden=true
-        }
-        else if (current==target)   //just so happen he is lookat the last vocab in the range
-        {
-            NextBut.isHidden=true
-        }
-        else if (current==lowerbound)
-        {
-            PrevBut.isHidden=true
-        }
-        if(QuizButtonShowed==true)
-        {
-            QuizButton.isHidden=false
-        }
+        DisplayNewSet()
+        checkbutton()
     }
     
 }

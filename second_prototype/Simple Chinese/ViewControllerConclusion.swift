@@ -11,10 +11,10 @@ import UIKit
 class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
-
+    
     var passChar : [String] = []
     var passTorF : [Bool] = []
-    
+    @IBOutlet weak var correctRate: UILabel!
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -36,22 +36,32 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         }
         cell.Character.text=passChar[indexPath.row]
         
-        
         return(cell)
     }
     
-    
+    func calculateCorrectRate(){
+        var numOfCorrect = 0
+        //var correctRateCalcuate : Double = 0
+        for i in 0...passTorF.count-1
+        {
+            if(passTorF[i] == true)
+            {
+                numOfCorrect += 1
+            }
+        }
+        correctRate.text = "You got " + String(numOfCorrect) + "/" + String(passTorF.count) + " correct"
+    }
     
     override func viewDidLoad() {
-        print("passChar:\(passChar), passTorF \(passTorF)")
         super.viewDidLoad()
+        calculateCorrectRate()
         // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-}
+        
+        
+        
+    }}

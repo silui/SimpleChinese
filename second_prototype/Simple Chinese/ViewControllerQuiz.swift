@@ -152,7 +152,8 @@ class ViewControllerQuiz: UIViewController {
             {
                 result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
                 passTorF.append(false)
-            
+//-----------------------------Start: Attempt to save to wrong.txt------------------------------------------------
+                /*
                 //pick incorrect options goes here
                 let fileName = "Test1"
                 let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -188,18 +189,32 @@ class ViewControllerQuiz: UIViewController {
                 }
                 print("File Text: \(readString)")
                 //end of list incorrect char
-                
+ */
+//----------------------------End: attempt to put in wrong.txt---------------------------------------
                 
             }
-            if(current == UserDefaults.standard.integer(forKey: "TargetProgress"))
+            if(current == UserDefaults.standard.integer(forKey: "TargetProgress"))  //if it reach end of 1 session
             {
                 nextProb.isHidden = true
                 ConclusionUI.isHidden = false
-                UserDefaults.standard.set(false, forKey: "DoneStudying")
-                let current=UserDefaults.standard.integer(forKey: "TargetProgress")
-                let vps=UserDefaults.standard.integer(forKey: "vps")
-                UserDefaults.standard.set((vps*3)+current, forKey: "TargetProgress")
-                UserDefaults.standard.set(true, forKey: "NeedNewSet")
+                if(current==myStrings.count-4)      //if it reach the end of 1 vocab set
+                {
+                    let defindedset=UserDefaults.standard.integer(forKey: "Vocabset")
+                    
+                    let alert = UIAlertController(title: "Congraduation", message: "You finished the set \(LoadVocab.VocabSet[defindedset])", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    for key in Array(UserDefaults.standard.dictionaryRepresentation().keys)
+                    {
+                        UserDefaults.standard.removeObject(forKey: key)
+                    }
+                }
+                else{
+                    UserDefaults.standard.set(true, forKey: "NeedNewSet")
+                    UserDefaults.standard.set(false, forKey: "NavToQuiz")
+                    UserDefaults.standard.set(true, forKey: "NavToStudy")
+                }
                 
             }
             else{
@@ -237,6 +252,7 @@ class ViewControllerQuiz: UIViewController {
             let passData = segue.destination as! ViewControllerConclusion
             passData.passChar = passChar
             passData.passTorF = passTorF
+            
         }
     }
     
