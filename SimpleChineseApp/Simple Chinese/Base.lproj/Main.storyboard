@@ -101,9 +101,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="BNS-FC-qa1" kind="show" identifier="NavToNps" id="xD6-22-MRB"/>
-                        <segue destination="wah-SZ-wl5" kind="show" identifier="NavToStudy" id="0tu-2v-kAy"/>
-                        <segue destination="Ted-lB-u24" kind="show" identifier="NavToQuiz" id="Uch-u3-CVb"/>
+                        <segue destination="BNS-FC-qa1" kind="show" identifier="NAVTONPS" id="xD6-22-MRB"/>
+                        <segue destination="wah-SZ-wl5" kind="show" identifier="NAVTOSTUDY" id="0tu-2v-kAy"/>
+                        <segue destination="Ted-lB-u24" kind="show" identifier="NAVTOQUIZ" id="Uch-u3-CVb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -212,7 +212,7 @@
                         <viewControllerLayoutGuide type="top" id="eoF-2Y-4pB"/>
                         <viewControllerLayoutGuide type="bottom" id="sy0-78-Y5X"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3iW-Kr-Wal" customClass="UIV">
+                    <view key="view" contentMode="scaleToFill" id="3iW-Kr-Wal">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -220,7 +220,7 @@
                                 <rect key="frame" x="91" y="396" width="192" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="vps_slider_slide:" destination="BNS-FC-qa1" eventType="valueChanged" id="dFz-J8-vuE"/>
+                                    <action selector="Vps_slider_slide:" destination="BNS-FC-qa1" eventType="valueChanged" id="8Fq-qX-hX7"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRt-6A-Pz9">
@@ -255,8 +255,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="vps_display" destination="3CY-iN-Ywo" id="PeA-cb-ifi"/>
-                        <outlet property="vps_slider" destination="dYr-VA-6l0" id="EtB-KL-bHC"/>
+                        <outlet property="Vps_display" destination="3CY-iN-Ywo" id="dcg-Pb-NVG"/>
+                        <outlet property="Vps_slider" destination="dYr-VA-6l0" id="HGe-zE-cOk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiu-mf-lzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -436,7 +436,7 @@
                                     <color key="titleColor" red="0.0001231272801683674" green="0.12626865292645181" blue="0.64044654187817263" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="YG3-aF-7zi"/>
+                                    <action selector="PickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="mRq-If-fSQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJs-Yk-iZn">
@@ -448,7 +448,7 @@
                                     <color key="titleColor" red="0.0001231272802" green="0.1262686529" blue="0.64044654190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="Ent-i7-07R"/>
+                                    <action selector="PickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="d5M-xh-BS7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l80-U6-RWZ">
@@ -460,7 +460,7 @@
                                     <color key="titleColor" red="0.0001231272802" green="0.1262686529" blue="0.64044654190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="5Z1-6t-PIs"/>
+                                    <action selector="PickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="ha1-Ir-d0i"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jim-ae-ZWD">
@@ -472,7 +472,7 @@
                                     <color key="titleColor" red="0.0001231272802" green="0.1262686529" blue="0.64044654190000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="Xeg-KM-4VA"/>
+                                    <action selector="PickAnswer:" destination="Ted-lB-u24" eventType="touchUpInside" id="PI3-ZI-QJ4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="769-xs-LYr">
@@ -495,7 +495,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="nextProb:" destination="Ted-lB-u24" eventType="touchUpInside" id="y5d-f6-7If"/>
+                                    <action selector="NextProb:" destination="Ted-lB-u24" eventType="touchUpInside" id="V2n-HQ-D8P"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correct/incorrect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SJ-9a-Fds">
@@ -510,7 +510,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Conclusion"/>
                                 <connections>
-                                    <segue destination="Wm9-MW-kZM" kind="show" identifier="QuizToConclusion" id="Xzr-cj-E9q"/>
+                                    <segue destination="Wm9-MW-kZM" kind="show" identifier="QUIZTOCONCLUSION" id="Xzr-cj-E9q"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pin Yin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDH-fk-NMr" userLabel="Label PinYin">
@@ -524,16 +524,16 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="AnsA" destination="TFm-hd-rOG" id="mD7-rs-GoH"/>
+                        <outlet property="AnsB" destination="yJs-Yk-iZn" id="Hav-Jb-dzG"/>
+                        <outlet property="AnsC" destination="l80-U6-RWZ" id="FbA-1o-auh"/>
+                        <outlet property="AnsD" destination="jim-ae-ZWD" id="lZf-aP-9eL"/>
+                        <outlet property="Button_ReturnToMain" destination="769-xs-LYr" id="X7a-UV-hoR"/>
                         <outlet property="ConclusionUI" destination="wPq-BC-rcp" id="0Oh-E9-fMH"/>
-                        <outlet property="ansA" destination="TFm-hd-rOG" id="U00-eD-Oip"/>
-                        <outlet property="ansB" destination="yJs-Yk-iZn" id="R22-5k-KBo"/>
-                        <outlet property="ansC" destination="l80-U6-RWZ" id="MaU-V8-rKD"/>
-                        <outlet property="ansD" destination="jim-ae-ZWD" id="3YT-3P-Rn7"/>
-                        <outlet property="button_ReturnToMain" destination="769-xs-LYr" id="AWX-Rm-VFa"/>
-                        <outlet property="label_Character" destination="bSn-Ym-12e" id="x0P-da-Lgq"/>
-                        <outlet property="label_PInYin" destination="pDH-fk-NMr" id="sx8-f7-110"/>
-                        <outlet property="nextProb" destination="KIV-Jl-3h8" id="WvA-Ab-1El"/>
-                        <outlet property="result" destination="2SJ-9a-Fds" id="2FC-oq-Apu"/>
+                        <outlet property="Label_Character" destination="bSn-Ym-12e" id="mc6-2H-zyf"/>
+                        <outlet property="Label_PInYin" destination="pDH-fk-NMr" id="qP3-8s-4KZ"/>
+                        <outlet property="NextProb" destination="KIV-Jl-3h8" id="8Re-MV-ixk"/>
+                        <outlet property="Result" destination="2SJ-9a-Fds" id="LPA-uL-PhQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kgZ-Nj-I5R" sceneMemberID="firstResponder"/>
@@ -614,7 +614,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="correctRate" destination="Ifr-Nv-lCQ" id="7fl-xB-Ibe"/>
+                        <outlet property="CorrectRate" destination="Ifr-Nv-lCQ" id="z12-kF-LKC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVu-P1-QTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -630,8 +630,8 @@
         <image name="米字" width="502" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2HX-9i-uFR"/>
         <segue reference="5Ck-Xd-LgK"/>
         <segue reference="Rv2-QE-Yca"/>
+        <segue reference="Uch-u3-CVb"/>
     </inferredMetricsTieBreakers>
 </document>

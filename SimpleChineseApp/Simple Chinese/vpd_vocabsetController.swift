@@ -21,35 +21,34 @@ class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPicker
         return VocabSet.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        UserDefaults.standard.set(row+1, forKey: "VocabSet")        //memorize user chosen vocab set
+        UserDefaults.standard.set(row+1, forKey: "VOCABSET")        //memorize user chosen vocab set
     }
-    @IBOutlet weak var vps_display: UILabel!
-    @IBOutlet weak var vps_slider: UISlider!
-    var vps=25
+    @IBOutlet weak var Vps_display: UILabel!
+    @IBOutlet weak var Vps_slider: UISlider!
+    var Vps=25
     
-    @IBAction func vps_slider_slide(_ sender: Any){
-        vps = Int(vps_slider.value)
-        vps_display.text="\(vps) words per session"
+    @IBAction func Vps_slider_slide(_ sender: Any) {
+        Vps = Int(Vps_slider.value)
+        Vps_display.text="\(Vps) words per session"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        UserDefaults.standard.set(true, forKey: "NavToStudy")
-        UserDefaults.standard.set(false, forKey: "NavToQuiz")
-        UserDefaults.standard.set(vps, forKey: "vps")
-        UserDefaults.standard.set(0, forKey: "ArrayProgress")
-        UserDefaults.standard.set(0, forKey: "LowerBound")
+        UserDefaults.standard.set(true, forKey: "NAVTOSTUDY")
+        UserDefaults.standard.set(false, forKey: "NAVTOQUIZ")
+        UserDefaults.standard.set(Vps, forKey: "VPS")
+        UserDefaults.standard.set(0, forKey: "ARRAYPROGRESS")
+        UserDefaults.standard.set(0, forKey: "LOWERBOUND")
         var myStrings : [String]=[]
-        LoadVocab.PutInArrayCustom(ArrayRef: &myStrings, set: UserDefaults.standard.integer(forKey: "VocabSet"))
-        let Stringsupper : Int = myStrings.count-2
+        LoadVocab.PutInArrayCustom(ArrayRef: &myStrings, set: UserDefaults.standard.integer(forKey: "VOCABSET"))
+        let stringsupper : Int = myStrings.count-2
         
-        UserDefaults.standard.set(min(Stringsupper, vps*3-3), forKey: "TargetProgress")
+        UserDefaults.standard.set(min(stringsupper, Vps*3-3), forKey: "TARGETPROGRESS")
 }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(1, forKey: "VocabSet")      //in case user didn't roll the
+        UserDefaults.standard.set(1, forKey: "VOCABSET")      //in case user didn't roll the
     }
 
 }

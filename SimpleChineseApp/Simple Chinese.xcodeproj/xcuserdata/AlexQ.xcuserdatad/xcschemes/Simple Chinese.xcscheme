@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Simple Chinese.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FBCFF3111F2563B200B2595E"
+               BuildableName = "PercentTester.xctest"
+               BlueprintName = "PercentTester"
+               ReferencedContainer = "container:Simple Chinese.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

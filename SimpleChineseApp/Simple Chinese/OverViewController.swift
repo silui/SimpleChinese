@@ -10,7 +10,7 @@ import UIKit
 
 class OverViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate{
 
-    var myStrings : [String]=[]
+    var MyStrings : [String]=[]
     let VocabSet=["1st Grade", "2nd Grade"]
     var Defaultselect=1
     
@@ -29,17 +29,17 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Defaultselect=row+1
-        LoadVocab.PutInArrayCustom(ArrayRef: &myStrings, set: Defaultselect)
+        LoadVocab.PutInArrayCustom(ArrayRef: &MyStrings, set: Defaultselect)
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return myStrings.count/3
+            return MyStrings.count/3
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
             
-            cell.Char_Field.text=myStrings[indexPath.row*3]
-            cell.PinYin_Field.text=myStrings[indexPath.row*3+1]
-            cell.Def_Field.text=myStrings[indexPath.row*3+2]
+            cell.Char_Field.text=MyStrings[indexPath.row*3]
+            cell.PinYin_Field.text=MyStrings[indexPath.row*3+1]
+            cell.Def_Field.text=MyStrings[indexPath.row*3+2]
             return cell
         }
         TableView.reloadData()
@@ -47,15 +47,15 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myStrings.count/3
+        return MyStrings.count/3
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
 
-        cell.Char_Field.text=myStrings[indexPath.row*3]
-        cell.PinYin_Field.text=myStrings[indexPath.row*3+1]
-        cell.Def_Field.text=myStrings[indexPath.row*3+2]
+        cell.Char_Field.text=MyStrings[indexPath.row*3]
+        cell.PinYin_Field.text=MyStrings[indexPath.row*3+1]
+        cell.Def_Field.text=MyStrings[indexPath.row*3+2]
         return cell
     }
     
@@ -64,17 +64,17 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LoadVocab.PutInArrayCustom(ArrayRef: &myStrings, set: Defaultselect)
+        LoadVocab.PutInArrayCustom(ArrayRef: &MyStrings, set: Defaultselect)
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return myStrings.count/3
+            return MyStrings.count/3
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
             
-            cell.Char_Field.text=myStrings[indexPath.row*3]
-            cell.PinYin_Field.text=myStrings[indexPath.row*3+1]
-            cell.Def_Field.text=myStrings[indexPath.row*3+2]
+            cell.Char_Field.text=MyStrings[indexPath.row*3]
+            cell.PinYin_Field.text=MyStrings[indexPath.row*3+1]
+            cell.Def_Field.text=MyStrings[indexPath.row*3+2]
             return cell
         }
         TableView.reloadData()

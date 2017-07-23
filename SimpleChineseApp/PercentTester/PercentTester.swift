@@ -1,14 +1,14 @@
 //
-//  Simple_ChineseTests.swift
-//  Simple ChineseTests
+//  PercentTester.swift
+//  PercentTester
 //
 //  Created by Tian Qiu on 7/23/17.
 //  Copyright © 2017 Luming Wang. All rights reserved.
 //
 
 import XCTest
-
-class Simple_ChineseTests: XCTestCase {
+@testable import Simple_Chinese
+class PercentTester: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -20,16 +20,12 @@ class Simple_ChineseTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testTruePercet(){
+        let myClass=ViewControllerConclusion()
+        let testarray: [Bool] = [true, false, true, false]
+        let theorticalPercet: Int = 50
+        XCTAssertEqual(myClass.TruePercent(array: testarray),theorticalPercet )
+        
     }
     
 }

@@ -17,17 +17,19 @@
 		630A2D371F11B5970054C3A0 /* LoadVocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A2D361F11B5970054C3A0 /* LoadVocab.swift */; };
 		6C1253B61F15539700AE2353 /* ViewControllerStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */; };
 		6C1253B81F18811F00AE2353 /* ViewControllerQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1253B71F18811F00AE2353 /* ViewControllerQuiz.swift */; };
-		FB16C9E01F24C5EE006813BB /* Simple_ChineseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB16C9DF1F24C5EE006813BB /* Simple_ChineseTests.swift */; };
 		FB8FBAC11F1C8E0500385D15 /* ViewControllerConclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */; };
 		FB91B5E71F1C042400CF109C /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91B5E61F1C042400CF109C /* OverViewController.swift */; };
 		FB91B5E91F1C048500CF109C /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91B5E81F1C048400CF109C /* OverViewCell.swift */; };
+		FBCFF3151F2563B200B2595E /* PercentTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCFF3141F2563B200B2595E /* PercentTester.swift */; };
+		FBCFF31C1F25651A00B2595E /* ViewControllerConclusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */; };
+		FBCFF31D1F25658100B2595E /* ConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99DD81F1C9B3900F3BD30 /* ConclusionCell.swift */; };
 		FBD05EB31F197C64000A9B92 /* vpd_vocabsetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */; };
 		FBD05EB51F197D53000A9B92 /* 1stGrade.txt in Resources */ = {isa = PBXBuildFile; fileRef = FBD05EB41F197D53000A9B92 /* 1stGrade.txt */; };
 		FBF99DD91F1C9B3900F3BD30 /* ConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99DD81F1C9B3900F3BD30 /* ConclusionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FB16C9E21F24C5EE006813BB /* PBXContainerItemProxy */ = {
+		FBCFF3171F2563B200B2595E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29BE619F1F1425D200D29511 /* Project object */;
 			proxyType = 1;
@@ -49,12 +51,12 @@
 		630A2D361F11B5970054C3A0 /* LoadVocab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadVocab.swift; sourceTree = "<group>"; };
 		6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerStudy.swift; sourceTree = "<group>"; };
 		6C1253B71F18811F00AE2353 /* ViewControllerQuiz.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerQuiz.swift; sourceTree = "<group>"; };
-		FB16C9DD1F24C5EE006813BB /* Simple ChineseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple ChineseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB16C9DF1F24C5EE006813BB /* Simple_ChineseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_ChineseTests.swift; sourceTree = "<group>"; };
-		FB16C9E11F24C5EE006813BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConclusion.swift; sourceTree = "<group>"; };
 		FB91B5E61F1C042400CF109C /* OverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		FB91B5E81F1C048400CF109C /* OverViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
+		FBCFF3121F2563B200B2595E /* PercentTester.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PercentTester.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBCFF3141F2563B200B2595E /* PercentTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentTester.swift; sourceTree = "<group>"; };
+		FBCFF3161F2563B200B2595E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vpd_vocabsetController.swift; sourceTree = "<group>"; };
 		FBD05EB41F197D53000A9B92 /* 1stGrade.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1stGrade.txt; sourceTree = "<group>"; };
 		FBF99DD81F1C9B3900F3BD30 /* ConclusionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConclusionCell.swift; sourceTree = "<group>"; };
@@ -68,7 +70,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB16C9DA1F24C5EE006813BB /* Frameworks */ = {
+		FBCFF30F1F2563B200B2595E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				29BE61A91F1425D200D29511 /* Simple Chinese */,
-				FB16C9DE1F24C5EE006813BB /* Simple ChineseTests */,
+				FBCFF3131F2563B200B2595E /* PercentTester */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,7 +93,7 @@
 			children = (
 				29BE61B11F1425D200D29511 /* Assets.xcassets */,
 				29BE61A71F1425D200D29511 /* Simple Chinese.app */,
-				FB16C9DD1F24C5EE006813BB /* Simple ChineseTests.xctest */,
+				FBCFF3121F2563B200B2595E /* PercentTester.xctest */,
 			);
 			name = Products;
 			path = ..;
@@ -129,13 +131,13 @@
 			name = vocabSet;
 			sourceTree = "<group>";
 		};
-		FB16C9DE1F24C5EE006813BB /* Simple ChineseTests */ = {
+		FBCFF3131F2563B200B2595E /* PercentTester */ = {
 			isa = PBXGroup;
 			children = (
-				FB16C9DF1F24C5EE006813BB /* Simple_ChineseTests.swift */,
-				FB16C9E11F24C5EE006813BB /* Info.plist */,
+				FBCFF3141F2563B200B2595E /* PercentTester.swift */,
+				FBCFF3161F2563B200B2595E /* Info.plist */,
 			);
-			path = "Simple ChineseTests";
+			path = PercentTester;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,22 +160,22 @@
 			productReference = 29BE61A71F1425D200D29511 /* Simple Chinese.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB16C9DC1F24C5EE006813BB /* Simple ChineseTests */ = {
+		FBCFF3111F2563B200B2595E /* PercentTester */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB16C9E61F24C5EE006813BB /* Build configuration list for PBXNativeTarget "Simple ChineseTests" */;
+			buildConfigurationList = FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "PercentTester" */;
 			buildPhases = (
-				FB16C9D91F24C5EE006813BB /* Sources */,
-				FB16C9DA1F24C5EE006813BB /* Frameworks */,
-				FB16C9DB1F24C5EE006813BB /* Resources */,
+				FBCFF30E1F2563B200B2595E /* Sources */,
+				FBCFF30F1F2563B200B2595E /* Frameworks */,
+				FBCFF3101F2563B200B2595E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				FB16C9E31F24C5EE006813BB /* PBXTargetDependency */,
+				FBCFF3181F2563B200B2595E /* PBXTargetDependency */,
 			);
-			name = "Simple ChineseTests";
-			productName = "Simple ChineseTests";
-			productReference = FB16C9DD1F24C5EE006813BB /* Simple ChineseTests.xctest */;
+			name = PercentTester;
+			productName = PercentTester;
+			productReference = FBCFF3121F2563B200B2595E /* PercentTester.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +192,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
-					FB16C9DC1F24C5EE006813BB = {
+					FBCFF3111F2563B200B2595E = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 29BE61A61F1425D200D29511;
@@ -211,7 +213,7 @@
 			projectRoot = "";
 			targets = (
 				29BE61A61F1425D200D29511 /* Simple Chinese */,
-				FB16C9DC1F24C5EE006813BB /* Simple ChineseTests */,
+				FBCFF3111F2563B200B2595E /* PercentTester */,
 			);
 		};
 /* End PBXProject section */
@@ -230,7 +232,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB16C9DB1F24C5EE006813BB /* Resources */ = {
+		FBCFF3101F2563B200B2595E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,21 +259,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB16C9D91F24C5EE006813BB /* Sources */ = {
+		FBCFF30E1F2563B200B2595E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB16C9E01F24C5EE006813BB /* Simple_ChineseTests.swift in Sources */,
+				FBCFF31D1F25658100B2595E /* ConclusionCell.swift in Sources */,
+				FBCFF31C1F25651A00B2595E /* ViewControllerConclusion.swift in Sources */,
+				FBCFF3151F2563B200B2595E /* PercentTester.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FB16C9E31F24C5EE006813BB /* PBXTargetDependency */ = {
+		FBCFF3181F2563B200B2595E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 29BE61A61F1425D200D29511 /* Simple Chinese */;
-			targetProxy = FB16C9E21F24C5EE006813BB /* PBXContainerItemProxy */;
+			targetProxy = FBCFF3171F2563B200B2595E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,26 +416,26 @@
 			};
 			name = Release;
 		};
-		FB16C9E41F24C5EE006813BB /* Debug */ = {
+		FBCFF31A1F2563B200B2595E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Simple ChineseTests/Info.plist";
+				INFOPLIST_FILE = PercentTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "SC.Simple-ChineseTests";
+				PRODUCT_BUNDLE_IDENTIFIER = SC.PercentTester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Chinese.app/Simple Chinese";
 			};
 			name = Debug;
 		};
-		FB16C9E51F24C5EE006813BB /* Release */ = {
+		FBCFF31B1F2563B200B2595E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Simple ChineseTests/Info.plist";
+				INFOPLIST_FILE = PercentTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "SC.Simple-ChineseTests";
+				PRODUCT_BUNDLE_IDENTIFIER = SC.PercentTester;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Chinese.app/Simple Chinese";
@@ -459,11 +463,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB16C9E61F24C5EE006813BB /* Build configuration list for PBXNativeTarget "Simple ChineseTests" */ = {
+		FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "PercentTester" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB16C9E41F24C5EE006813BB /* Debug */,
-				FB16C9E51F24C5EE006813BB /* Release */,
+				FBCFF31A1F2563B200B2595E /* Debug */,
+				FBCFF31B1F2563B200B2595E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
