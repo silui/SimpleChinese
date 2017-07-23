@@ -1,10 +1,3 @@
-//
-//  ViewControllerReview.swift
-//  Simple Chinese
-//
-//  Created by Yibo Fu on 7/13/17.
-//  Copyright © 2017 Luming Wang. All rights reserved.
-//
 
 import UIKit
 
