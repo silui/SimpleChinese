@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29A54A0D1F21A76600279896 /* 全新硬笔楷书简.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29A54A0C1F21A76600279896 /* 全新硬笔楷书简.ttf */; };
 		29BE61AB1F1425D200D29511 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE61AA1F1425D200D29511 /* AppDelegate.swift */; };
 		29BE61AD1F1425D200D29511 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE61AC1F1425D200D29511 /* ViewController.swift */; };
 		29BE61B01F1425D200D29511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE61AE1F1425D200D29511 /* Main.storyboard */; };
@@ -21,21 +22,11 @@
 		FB91B5E91F1C048500CF109C /* OverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB91B5E81F1C048400CF109C /* OverViewCell.swift */; };
 		FBD05EB31F197C64000A9B92 /* vpd_vocabsetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */; };
 		FBD05EB51F197D53000A9B92 /* 1stGrade.txt in Resources */ = {isa = PBXBuildFile; fileRef = FBD05EB41F197D53000A9B92 /* 1stGrade.txt */; };
-		FBD16DD81F21C144003ED313 /* Simple_ChineseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD16DD71F21C144003ED313 /* Simple_ChineseTests.swift */; };
 		FBF99DD91F1C9B3900F3BD30 /* ConclusionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99DD81F1C9B3900F3BD30 /* ConclusionCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FBD16DDA1F21C145003ED313 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29BE619F1F1425D200D29511 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 29BE61A61F1425D200D29511;
-			remoteInfo = "Simple Chinese";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		29A54A0C1F21A76600279896 /* 全新硬笔楷书简.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "全新硬笔楷书简.ttf"; sourceTree = "<group>"; };
 		29BE61A71F1425D200D29511 /* Simple Chinese.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Chinese.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BE61AA1F1425D200D29511 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29BE61AC1F1425D200D29511 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,21 +43,11 @@
 		FB91B5E81F1C048400CF109C /* OverViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
 		FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vpd_vocabsetController.swift; sourceTree = "<group>"; };
 		FBD05EB41F197D53000A9B92 /* 1stGrade.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1stGrade.txt; sourceTree = "<group>"; };
-		FBD16DD51F21C144003ED313 /* Simple ChineseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Simple ChineseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBD16DD71F21C144003ED313 /* Simple_ChineseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_ChineseTests.swift; sourceTree = "<group>"; };
-		FBD16DD91F21C145003ED313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBF99DD81F1C9B3900F3BD30 /* ConclusionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConclusionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		29BE61A41F1425D200D29511 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBD16DD21F21C144003ED313 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				29BE61A91F1425D200D29511 /* Simple Chinese */,
-				FBD16DD61F21C144003ED313 /* Simple ChineseTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,7 +69,6 @@
 			children = (
 				29BE61B11F1425D200D29511 /* Assets.xcassets */,
 				29BE61A71F1425D200D29511 /* Simple Chinese.app */,
-				FBD16DD51F21C144003ED313 /* Simple ChineseTests.xctest */,
 			);
 			name = Products;
 			path = ..;
@@ -98,6 +77,7 @@
 		29BE61A91F1425D200D29511 /* Simple Chinese */ = {
 			isa = PBXGroup;
 			children = (
+				29A54A0C1F21A76600279896 /* 全新硬笔楷书简.ttf */,
 				29BE61AC1F1425D200D29511 /* ViewController.swift */,
 				FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */,
 				6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */,
@@ -126,15 +106,6 @@
 			name = vocabSet;
 			sourceTree = "<group>";
 		};
-		FBD16DD61F21C144003ED313 /* Simple ChineseTests */ = {
-			isa = PBXGroup;
-			children = (
-				FBD16DD71F21C144003ED313 /* Simple_ChineseTests.swift */,
-				FBD16DD91F21C145003ED313 /* Info.plist */,
-			);
-			path = "Simple ChineseTests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,24 +126,6 @@
 			productReference = 29BE61A71F1425D200D29511 /* Simple Chinese.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FBD16DD41F21C144003ED313 /* Simple ChineseTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FBD16DDC1F21C145003ED313 /* Build configuration list for PBXNativeTarget "Simple ChineseTests" */;
-			buildPhases = (
-				FBD16DD11F21C144003ED313 /* Sources */,
-				FBD16DD21F21C144003ED313 /* Frameworks */,
-				FBD16DD31F21C144003ED313 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FBD16DDB1F21C145003ED313 /* PBXTargetDependency */,
-			);
-			name = "Simple ChineseTests";
-			productName = "Simple ChineseTests";
-			productReference = FBD16DD51F21C144003ED313 /* Simple ChineseTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -186,11 +139,6 @@
 					29BE61A61F1425D200D29511 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
-					};
-					FBD16DD41F21C144003ED313 = {
-						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 29BE61A61F1425D200D29511;
 					};
 				};
 			};
@@ -208,7 +156,6 @@
 			projectRoot = "";
 			targets = (
 				29BE61A61F1425D200D29511 /* Simple Chinese */,
-				FBD16DD41F21C144003ED313 /* Simple ChineseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -218,18 +165,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A54A0D1F21A76600279896 /* 全新硬笔楷书简.ttf in Resources */,
 				29BE61B51F1425D200D29511 /* LaunchScreen.storyboard in Resources */,
 				630A2D351F11B2C90054C3A0 /* 2ndGrade.txt in Resources */,
 				FBD05EB51F197D53000A9B92 /* 1stGrade.txt in Resources */,
 				29BE61B21F1425D200D29511 /* Assets.xcassets in Resources */,
 				29BE61B01F1425D200D29511 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBD16DD31F21C144003ED313 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,23 +194,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FBD16DD11F21C144003ED313 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FBD16DD81F21C144003ED313 /* Simple_ChineseTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FBD16DDB1F21C145003ED313 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 29BE61A61F1425D200D29511 /* Simple Chinese */;
-			targetProxy = FBD16DDA1F21C145003ED313 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		29BE61AE1F1425D200D29511 /* Main.storyboard */ = {
@@ -393,7 +318,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lumingous.Simple-Chinese";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -406,33 +330,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lumingous.Simple-Chinese";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		FBD16DDD1F21C145003ED313 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Simple ChineseTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "SC.Simple-ChineseTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Chinese.app/Simple Chinese";
-			};
-			name = Debug;
-		};
-		FBD16DDE1F21C145003ED313 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Simple ChineseTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "SC.Simple-ChineseTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Simple Chinese.app/Simple Chinese";
 			};
 			name = Release;
 		};
@@ -456,14 +353,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		FBD16DDC1F21C145003ED313 /* Build configuration list for PBXNativeTarget "Simple ChineseTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FBD16DDD1F21C145003ED313 /* Debug */,
-				FBD16DDE1F21C145003ED313 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

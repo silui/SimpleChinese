@@ -35,9 +35,17 @@ class ViewControllerQuiz: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Add frames to the answer
+        ansA.layer.borderWidth=1
+        ansA.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        ansB.layer.borderWidth=1
+        ansB.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        ansC.layer.borderWidth=1
+        ansC.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        ansD.layer.borderWidth=1
+        ansD.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
         
         
-        setBoxBorder()
         LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
         
         let upperbound=UserDefaults.standard.integer(forKey: "TargetProgress")
@@ -47,24 +55,12 @@ class ViewControllerQuiz: UIViewController {
         
         DisplayNewSet()
         randomAnswer()      //get mystrings index for wrong answer
-        putrandomanswer()       //set title for answers
+        putRandomAnswer()       //set title for answers
         
     }
     
-    func setBoxBorder()
-    {
-        ansA.layer.borderWidth=1
-        ansA.layer.borderColor=UIColor.black.cgColor
-        ansB.layer.borderWidth=1
-        ansB.layer.borderColor=UIColor.black.cgColor
-        ansC.layer.borderWidth=1
-        ansC.layer.borderColor=UIColor.black.cgColor
-        ansD.layer.borderWidth=1
-        ansD.layer.borderColor=UIColor.black.cgColor
-        
-    }
-    
-    func putrandomanswer()
+    //By using correctAnswer variable, we can put answers in random places
+    func putRandomAnswer()
     {
         var arrayWalker=0
         if(correctAnswer==1)
@@ -237,7 +233,7 @@ class ViewControllerQuiz: UIViewController {
         
         correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
         randomAnswer()      //get mystrings index for wrong answer
-        putrandomanswer()       //set title for answers
+        putRandomAnswer()       //set title for answers
         DisplayNewSet()
         
     }
