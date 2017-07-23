@@ -1,0 +1,24 @@
+# SimpleChinese
+ios app for chinese learner
+
+6/28
+establish team members
+decided project idea
+
+7/3 Meeting 
+finish release plan v1.0
+finish sprint 1 plan v1.0
+almost done with presentation slide except for chart
+
+7/8
+release plan
+https://docs.google.com/document/d/1ji1Y0LHezYp56nkLhbNBXumvxTKGzEs95_r4kp3gA6A/edit?usp=sharing
+sprint1 plan
+https://docs.google.com/document/d/1GQLr6wScArY-ZbAnhnv0OoKdwv07wLhsyf-OCVXZfyE/edit?usp=sharing
+scrum board
+https://docs.google.com/spreadsheets/d/15ZTtTa7D0Ctonx25rFiyonvhIrOKgSqooetX-1o1cY8/edit?usp=sharing
+release plan review
+sprint1 plan review
+scrum meeting practice
+scrum board
+UI design disscussion
