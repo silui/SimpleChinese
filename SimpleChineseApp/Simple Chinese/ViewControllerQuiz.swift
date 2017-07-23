@@ -50,6 +50,7 @@ class ViewControllerQuiz: UIViewController {
         putrandomanswer()       //set title for answers
         
     }
+    
     func setBoxBorder()
     {
         ansA.layer.borderWidth=1
