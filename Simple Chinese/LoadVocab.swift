@@ -9,6 +9,8 @@
 import Foundation
 class LoadVocab
 {
+    static let VocabSet=["1st Grade", "2nd Grade"]
+    
     static func PutInArrayCustom( ArrayRef:inout [String], set: Int)
     {
         

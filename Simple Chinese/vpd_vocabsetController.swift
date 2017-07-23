@@ -10,7 +10,7 @@ import UIKit
 
 class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
-    let VocabSet=["1st Grade", "2nd Grade"]
+    let VocabSet=LoadVocab.VocabSet
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -21,7 +21,7 @@ class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPicker
         return VocabSet.count
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        UserDefaults.standard.set(row+1, forKey: "VocabSet")
+        UserDefaults.standard.set(row+1, forKey: "VocabSet")        //memorize user chosen vocab set
     }
     @IBOutlet weak var vps_display: UILabel!
     @IBOutlet weak var vps_slider: UISlider!
@@ -34,16 +34,22 @@ class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        UserDefaults.standard.set(true, forKey: "NavToStudy")
+        UserDefaults.standard.set(false, forKey: "NavToQuiz")
         UserDefaults.standard.set(vps, forKey: "vps")
-        UserDefaults.standard.set(true, forKey: "VocabDefined")
-        UserDefaults.standard.set(false, forKey: "DoneStudying")
         UserDefaults.standard.set(0, forKey: "ArrayProgress")
+        UserDefaults.standard.set(0, forKey: "LowerBound")
+        var myStrings : [String]=[]
+        LoadVocab.PutInArrayCustom(ArrayRef: &myStrings, set: UserDefaults.standard.integer(forKey: "VocabSet"))
+        let Stringsupper : Int = myStrings.count-2
+        
+        UserDefaults.standard.set(min(Stringsupper, vps*3-3), forKey: "TargetProgress")
 }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(1, forKey: "VocabSet")
+        UserDefaults.standard.set(1, forKey: "VocabSet")      //in case user didn't roll the
     }
 
 }

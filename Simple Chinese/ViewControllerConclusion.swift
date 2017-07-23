@@ -11,7 +11,7 @@ import UIKit
 class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
-
+    
     var passChar : [String] = []
     var passTorF : [Bool] = []
     @IBOutlet weak var correctRate: UILabel!
@@ -46,7 +46,7 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         {
             if(passTorF[i] == true)
             {
-               numOfCorrect += 1
+                numOfCorrect += 1
             }
         }
         correctRate.text = "You got " + String(numOfCorrect) + "/" + String(passTorF.count) + " correct"
@@ -61,7 +61,7 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
-    
-    
+        
+        
+        
     }}
