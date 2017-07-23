@@ -57,11 +57,10 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         calculateCorrectRate()
         // Do any additional setup after loading the view.
     }
+}
+/*
+ extension func TrueRateInArray(inputarray: [Bool]) -> Int {
+    return 0
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        
-        
-    }}
+}
+*/

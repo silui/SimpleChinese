@@ -223,7 +223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="dYr-VA-6l0">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="2" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="dYr-VA-6l0">
                                 <rect key="frame" x="91" y="396" width="192" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -571,8 +571,8 @@
         <image name="米字" width="502" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0tu-2v-kAy"/>
-        <segue reference="Ca6-kp-ybb"/>
         <segue reference="Uch-u3-CVb"/>
+        <segue reference="Ca6-kp-ybb"/>
+        <segue reference="5Ck-Xd-LgK"/>
     </inferredMetricsTieBreakers>
 </document>
