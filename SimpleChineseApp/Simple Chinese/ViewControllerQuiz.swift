@@ -58,7 +58,61 @@ class ViewControllerQuiz: UIViewController {
         putRandomAnswer()       //set title for answers
         
     }
+    func pickRandomDef(){
+        let upperbound=UInt32((myStrings.count-3)/3)
+        randomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        randomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        randomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        
+        while(doesArrayContainDuplicate(array: randomIndexArray)==true){
+            for i in 0...3{
+                randomIndexArray[i]=3*Int(arc4random_uniform(upperbound))+2
+            }
+        }
+    }
     
+    func doesArrayContainDuplicate(array: [Int])->Bool
+    {
+        for a in 0...array.count{
+            if(array[a]==current+2){
+                return true
+            }
+            for b in 0...array.count{
+                if(a != b){
+                    if(array[a]==array[b])
+                    {
+                        return true
+                    }
+                }
+            }
+            
+        }
+        return false
+    }
+    //Random for wrong explanation
+    func randomAnswer()
+    {
+        let upperbound=UInt32((myStrings.count-3)/3)
+        var random1 = 3*Int(arc4random_uniform(upperbound))+2
+        var random2 = 3*Int(arc4random_uniform(upperbound))+2
+        var random3 = 3*Int(arc4random_uniform(upperbound))+2
+        if random1 == current+2
+        {
+            random1 = 3*Int(arc4random_uniform(upperbound))+2
+        }
+        if random2 == current+2 || random2 == random1
+        {
+            random2 = 3*Int(arc4random_uniform(upperbound))+2
+        }
+        if random3 == current+2 || random3 == random1 || random3 == random2
+        {
+            random3 = 3*Int(arc4random_uniform(upperbound))+2
+        }
+        randomIndexArray.append(random1)
+        randomIndexArray.append(random2)
+        randomIndexArray.append(random3)
+    }
+
     //By using correctAnswer variable, we can put answers in random places
     func putRandomAnswer()
     {
@@ -104,29 +158,6 @@ class ViewControllerQuiz: UIViewController {
     
     
     
-    //Random for wrong explanation
-    func randomAnswer()
-    {
-        let upperbound=UInt32((myStrings.count-3)/3)
-        var random1 = 3*Int(arc4random_uniform(upperbound))+2
-        var random2 = 3*Int(arc4random_uniform(upperbound))+2
-        var random3 = 3*Int(arc4random_uniform(upperbound))+2
-        if random1 == current+2
-        {
-            random1 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        if random2 == current+2 || random2 == random1
-        {
-            random2 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        if random3 == current+2 || random3 == random1 || random3 == random2
-        {
-            random3 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        randomIndexArray.append(random1)
-        randomIndexArray.append(random2)
-        randomIndexArray.append(random3)
-    }
     
     func randomAnswerPlace()->Int
     {

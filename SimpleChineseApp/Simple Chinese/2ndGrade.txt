@@ -66,7 +66,7 @@
 远 yuǎn faraway
 定 dìng calm,decide
 向 xiàng direction
-以 yǐ because of,to
+以 yǐ of,to
 后 hòu after
 更 gèng further,more
 主 zhǔ owner
@@ -149,8 +149,8 @@
 桥 qiáo bridge
 竹 zhú bamboo
 军 jūn army
-苗 miáo
-井 jǐng seedling
+苗 miáo seedling
+井 jǐng well
 乡 xiāng village
 面 miàn face,surface
 忘 wàng forget
