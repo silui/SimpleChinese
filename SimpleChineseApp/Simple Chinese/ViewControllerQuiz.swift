@@ -135,9 +135,9 @@ class ViewControllerQuiz: UIViewController {
                 Result.text = "Incorrect, the correct answer is \"\(MyStrings[Current+2])\""
                 PassTorF.append(false)
 //-----------------------------Start: Attempt to save to wrong.txt------------------------------------------------
-                /*
+                
                 //pick incorrect options goes here
-                let fileName = "Test1"
+                let fileName = "wrong"
                 let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 
                 let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
@@ -152,7 +152,7 @@ class ViewControllerQuiz: UIViewController {
                 }
                 
                 //copy of the total context.
-                let toPutIn = MyStrings[Current]+" "+MyStrings[Current+1]+" "+MyStrings[Current+2]+"\n"
+                let toPutIn = MyStrings[Current]+" "+MyStrings[Current+1]+" "+MyStrings[Current+2]
                 let writeString = originalText + "\n" + toPutIn
                 
                 do {
@@ -171,7 +171,7 @@ class ViewControllerQuiz: UIViewController {
                 }
                 print("File Text: \(readString)")
                 //end of list incorrect char
- */
+ 
 //----------------------------End: attempt to put in wrong.txt---------------------------------------
                 
             }

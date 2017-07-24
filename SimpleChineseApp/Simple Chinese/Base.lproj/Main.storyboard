@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,6 +83,9 @@
                                     <color key="titleColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="AOV-Yk-Jvr" kind="show" id="la5-zj-QyT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bh-pN-Lbg">
                                 <rect key="frame" x="99" y="607" width="177" height="44"/>
@@ -203,6 +206,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWV-gx-08Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-847.20000000000005" y="684.10794602698661"/>
+        </scene>
+        <!--Wrong List-->
+        <scene sceneID="MmJ-cN-fuz">
+            <objects>
+                <viewController id="AOV-Yk-Jvr" customClass="UIWrongList" customModule="Simple_Chinese" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8SQ-zq-6L4"/>
+                        <viewControllerLayoutGuide type="bottom" id="emU-9M-DS5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Op9-iE-3u3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cGJ-d2-y7Q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="qG4-8M-CT1">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qG4-8M-CT1" id="9oj-Sc-ywE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AOV-Yk-Jvr" id="Yyu-jJ-bif"/>
+                                    <outlet property="delegate" destination="AOV-Yk-Jvr" id="Cyh-2q-LTN"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJG-dR-S66">
+                                <rect key="frame" x="16" y="637" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Uc9-kb-KjI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdJ-Fx-4EQ">
+                                <rect key="frame" x="313" y="637" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="Resetwronglist:" destination="AOV-Yk-Jvr" eventType="touchUpInside" id="cOr-W0-Vp0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="WLTableView" destination="cGJ-d2-y7Q" id="6GV-kz-cGF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEx-D9-565" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="796.55172413793105"/>
         </scene>
         <!--Vpd vocabset Controller-->
         <scene sceneID="ObN-K8-cnd">
@@ -639,8 +700,8 @@
         <image name="米字" width="502" height="501"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Ck-Xd-LgK"/>
-        <segue reference="Ca6-kp-ybb"/>
-        <segue reference="2HX-9i-uFR"/>
+        <segue reference="0tu-2v-kAy"/>
+        <segue reference="Uc9-kb-KjI"/>
+        <segue reference="Uch-u3-CVb"/>
     </inferredMetricsTieBreakers>
 </document>
