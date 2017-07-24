@@ -152,7 +152,7 @@ class ViewControllerQuiz: UIViewController {
                 }
                 
                 //copy of the total context.
-                let toPutIn = MyStrings[Current]+" "+MyStrings[Current+1]+" "+MyStrings[Current+2]
+                let toPutIn = MyStrings[Current]+"      "+MyStrings[Current+1]+"        "+MyStrings[Current+2]+"\n"
                 let writeString = originalText + "\n" + toPutIn
                 
                 do {

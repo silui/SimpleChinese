@@ -13,6 +13,7 @@
 		29BE61B01F1425D200D29511 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE61AE1F1425D200D29511 /* Main.storyboard */; };
 		29BE61B21F1425D200D29511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29BE61B11F1425D200D29511 /* Assets.xcassets */; };
 		29BE61B51F1425D200D29511 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BE61B31F1425D200D29511 /* LaunchScreen.storyboard */; };
+		29E942091F26B01B007E3E09 /* 汉仪小麦简体.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29E942081F26B01B007E3E09 /* 汉仪小麦简体.ttf */; };
 		53DC3BF31F259FAD00B82375 /* UIWrongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DC3BF21F259FAD00B82375 /* UIWrongList.swift */; };
 		630A2D351F11B2C90054C3A0 /* 2ndGrade.txt in Resources */ = {isa = PBXBuildFile; fileRef = 630A2D341F11B2C90054C3A0 /* 2ndGrade.txt */; };
 		630A2D371F11B5970054C3A0 /* LoadVocab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630A2D361F11B5970054C3A0 /* LoadVocab.swift */; };
@@ -48,6 +49,7 @@
 		29BE61B11F1425D200D29511 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Simple Chinese/Assets.xcassets"; sourceTree = "<group>"; };
 		29BE61B41F1425D200D29511 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29BE61B61F1425D200D29511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29E942081F26B01B007E3E09 /* 汉仪小麦简体.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "汉仪小麦简体.ttf"; sourceTree = "<group>"; };
 		53DC3BF21F259FAD00B82375 /* UIWrongList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWrongList.swift; sourceTree = "<group>"; };
 		630A2D341F11B2C90054C3A0 /* 2ndGrade.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2ndGrade.txt; sourceTree = "<group>"; };
 		630A2D361F11B5970054C3A0 /* LoadVocab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadVocab.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				29A54A0C1F21A76600279896 /* 全新硬笔楷书简.ttf */,
+				29E942081F26B01B007E3E09 /* 汉仪小麦简体.ttf */,
 				29BE61AC1F1425D200D29511 /* ViewController.swift */,
 				FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */,
 				6C1253B51F15539700AE2353 /* ViewControllerStudy.swift */,
@@ -231,6 +234,7 @@
 				630A2D351F11B2C90054C3A0 /* 2ndGrade.txt in Resources */,
 				FBD05EB51F197D53000A9B92 /* 1stGrade.txt in Resources */,
 				29BE61B21F1425D200D29511 /* Assets.xcassets in Resources */,
+				29E942091F26B01B007E3E09 /* 汉仪小麦简体.ttf in Resources */,
 				29BE61B01F1425D200D29511 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
