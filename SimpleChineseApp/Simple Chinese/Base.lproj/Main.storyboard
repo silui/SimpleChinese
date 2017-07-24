@@ -360,6 +360,15 @@
                                     <segue destination="Ted-lB-u24" kind="show" id="2HX-9i-uFR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="552-eQ-Ug3">
+                                <rect key="frame" x="293" y="28" width="58" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <state key="normal" title="🔈"/>
+                                <connections>
+                                    <action selector="Speak:" destination="wah-SZ-wl5" eventType="touchUpInside" id="gLa-AB-Boa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -631,7 +640,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5Ck-Xd-LgK"/>
-        <segue reference="Rv2-QE-Yca"/>
-        <segue reference="Uch-u3-CVb"/>
+        <segue reference="Ca6-kp-ybb"/>
+        <segue reference="2HX-9i-uFR"/>
     </inferredMetricsTieBreakers>
 </document>

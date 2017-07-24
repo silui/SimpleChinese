@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import UIKit
+import AVFoundation
+import Speech
+class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
 
-class ViewControllerStudy: UIViewController {
-
+    var Synthesizer = AVSpeechSynthesizer()
     @IBOutlet weak var PinyinField: UILabel!
     @IBOutlet weak var DefField: UILabel!
     @IBOutlet weak var CharField: UILabel!
@@ -36,6 +39,10 @@ class ViewControllerStudy: UIViewController {
         Checkbutton()
     }
 
+    @IBAction func Speak(_ sender: UIButton) {
+        let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
+        Speakfunction(Chinese: MyStrings[current])
+    }
     @IBAction func NextVocab(_ sender: Any){
         let target=UserDefaults.standard.integer(forKey: "TARGETPROGRESS")
         let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
@@ -98,5 +105,19 @@ class ViewControllerStudy: UIViewController {
         DisplayNewSet()
         Checkbutton()
     }
-    
+    func Speakfunction(Chinese: String){
+        let textparah = Chinese.components(separatedBy: "\n")
+        if !self.Synthesizer.isSpeaking{
+            for piecetext in textparah {
+                let speech = AVSpeechUtterance(string: piecetext)
+                let voice = AVSpeechSynthesisVoice(language: "zh-CN")
+                speech.voice = voice
+                speech.rate = 0.5
+                self.Synthesizer.speak(speech)
+            }
+        }else{
+            self.Synthesizer.continueSpeaking()
+        }
+
+    }
 }
