@@ -3,151 +3,137 @@ import UIKit
 
 class ViewControllerQuiz: UIViewController {
     
-    @IBOutlet weak var label_PInYin: UILabel!
-    @IBOutlet weak var label_Character: UILabel!
-    @IBOutlet weak var ansA: UIButton!
-    @IBOutlet weak var ansB: UIButton!
-    @IBOutlet weak var ansC: UIButton!
-    @IBOutlet weak var ansD: UIButton!
+    @IBOutlet weak var Label_PInYin: UILabel!
+    @IBOutlet weak var Label_Character: UILabel!
+    @IBOutlet weak var AnsA: UIButton!
+    @IBOutlet weak var AnsB: UIButton!
+    @IBOutlet weak var AnsC: UIButton!
+    @IBOutlet weak var AnsD: UIButton!
     
-    @IBOutlet weak var result: UILabel!
-    @IBOutlet weak var nextProb: UIButton!
+    @IBOutlet weak var Result: UILabel!
+    @IBOutlet weak var NextProb: UIButton!
     @IBOutlet weak var ConclusionUI: UIButton!
     
-    @IBOutlet weak var button_ReturnToMain: UIButton!
+    @IBOutlet weak var Button_ReturnToMain: UIButton!
     
-    var correctAnswer = 0       //position of correct answer
+    var CorrectAnswer = 0       //position of correct answer
     
-    var myStrings : [String]=[]
+    var MyStrings : [String]=[]
     
-    var randomIndexArray :[Int]=[]
-    var current=0           //mystring index for current char
+    var RandomIndexArray :[Int]=[]
+    var Current=0           //mystring index for current char
     
-    var passChar :[String] = []
-    var passTorF :[Bool] = []
+    var PassChar :[String] = []
+    var PassTorF :[Bool] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Add frames to the answer
+        AnsA.layer.borderWidth=1
+        AnsA.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        AnsB.layer.borderWidth=1
+        AnsB.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        AnsC.layer.borderWidth=1
+        AnsC.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
+        AnsD.layer.borderWidth=1
+        AnsD.layer.borderColor=UIColor(red:80/255.0, green:35/255.0, blue:35/255.0, alpha: 0.75).cgColor
         
+        LoadVocab.PutInArrayDefault(ArrayRef: &MyStrings)
         
-        setBoxBorder()
-        LoadVocab.PutInArrayDefault(ArrayRef: &myStrings)
-        
-        let upperbound=UserDefaults.standard.integer(forKey: "TargetProgress")
-        let vps=UserDefaults.standard.integer(forKey: "vps")
-        current=upperbound - 3*(vps-1)
-        correctAnswer=randomAnswerPlace()
+        let upperbound=UserDefaults.standard.integer(forKey: "TARGETPROGRESS")
+        let vps=UserDefaults.standard.integer(forKey: "VPS")
+        Current=upperbound - 3*(vps-1)
+        CorrectAnswer=RandomAnswerPlace()
         
         DisplayNewSet()
-        randomAnswer()      //get mystrings index for wrong answer
-        putrandomanswer()       //set title for answers
-        
-    }
-    func setBoxBorder()
-    {
-        ansA.layer.borderWidth=1
-        ansA.layer.borderColor=UIColor.black.cgColor
-        ansB.layer.borderWidth=1
-        ansB.layer.borderColor=UIColor.black.cgColor
-        ansC.layer.borderWidth=1
-        ansC.layer.borderColor=UIColor.black.cgColor
-        ansD.layer.borderWidth=1
-        ansD.layer.borderColor=UIColor.black.cgColor
+        PickRandomDef()      //get MyStrings index for wrong answer
+        PutRandomAnswer()       //set title for answers
         
     }
     
-    func putrandomanswer()
-    {
+    func PickRandomDef(){       //gen 3 random MyStrings value that are not the same with current and each other
+        let upperbound=UInt32((MyStrings.count-3)/3)
+        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+        
+        while(DoesArrayContainDuplicate(array: RandomIndexArray)==true){
+            for i in 0...2{
+                RandomIndexArray[i]=3*Int(arc4random_uniform(upperbound))+2
+            }
+        }
+    }
+    
+    func DoesArrayContainDuplicate(array: [Int])->Bool{      //helper function for PickRandomDef()
+        for a in 0...array.count-1{
+            if(array[a]==Current+2){
+                return true
+            }
+            for b in 0...array.count-1{
+                if(a != b){
+                    if(array[a] == array[b]){
+                        return true
+                    }
+                }
+            }
+        }
+        return false
+    }
+    
+    //By using correctAnswer variable, we can put answers in random places
+    func PutRandomAnswer(){
         var arrayWalker=0
-        if(correctAnswer==1)
-        {
-            ansA.setTitle(myStrings[current+2], for: .normal)
+        if(CorrectAnswer==1){
+            AnsA.setTitle(MyStrings[Current+2], for: .normal)
         }
-        else
-        {
-            ansA.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+        else{
+            AnsA.setTitle(MyStrings[RandomIndexArray[arrayWalker]], for: .normal)
             arrayWalker+=1
         }
-        if(correctAnswer==2)
-        {
-            ansB.setTitle(myStrings[current+2], for: .normal)
+        if(CorrectAnswer==2){
+            AnsB.setTitle(MyStrings[Current+2], for: .normal)
         }
-        else
-        {
-            ansB.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+        else{
+            AnsB.setTitle(MyStrings[RandomIndexArray[arrayWalker]], for: .normal)
             arrayWalker+=1
         }
-        if(correctAnswer==3)
-        {
-            ansC.setTitle(myStrings[current+2], for: .normal)
+        if(CorrectAnswer==3){
+            AnsC.setTitle(MyStrings[Current+2], for: .normal)
         }
-        else
-        {
-            ansC.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+        else{
+            AnsC.setTitle(MyStrings[RandomIndexArray[arrayWalker]], for: .normal)
             arrayWalker+=1
         }
-        if(correctAnswer==4)
-        {
-            ansD.setTitle(myStrings[current+2], for: .normal)
+        if(CorrectAnswer==4){
+            AnsD.setTitle(MyStrings[Current+2], for: .normal)
         }
-        else
-        {
-            ansD.setTitle(myStrings[randomIndexArray[arrayWalker]], for: .normal)
+        else{
+            AnsD.setTitle(MyStrings[RandomIndexArray[arrayWalker]], for: .normal)
             arrayWalker+=1
         }
     }
     
     
-    
-    
-    //Random for wrong explanation
-    func randomAnswer()
-    {
-        let upperbound=UInt32((myStrings.count-3)/3)
-        var random1 = 3*Int(arc4random_uniform(upperbound))+2
-        var random2 = 3*Int(arc4random_uniform(upperbound))+2
-        var random3 = 3*Int(arc4random_uniform(upperbound))+2
-        if random1 == current+2
-        {
-            random1 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        if random2 == current+2 || random2 == random1
-        {
-            random2 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        if random3 == current+2 || random3 == random1 || random3 == random2
-        {
-            random3 = 3*Int(arc4random_uniform(upperbound))+2
-        }
-        randomIndexArray.append(random1)
-        randomIndexArray.append(random2)
-        randomIndexArray.append(random3)
-    }
-    
-    func randomAnswerPlace()->Int
-    {
+    func RandomAnswerPlace()->Int{
         let randomPlace = arc4random_uniform(4) + 1
         return Int(randomPlace)
         //随机return1-4的value
     }
     
-    @IBAction func pickAnswer(_ sender: Any)
-    {
-        if(result.isHidden == true)
-        {
+    @IBAction func PickAnswer(_ sender: Any){
+        if(Result.isHidden == true){
             let Answertag:Int = (sender as AnyObject).tag
-            result.isHidden = false
-            if Answertag == correctAnswer
-            {
-                result.text = "Correct"
-                passTorF.append(true)
+            Result.isHidden = false
+            if Answertag == CorrectAnswer{
+                Result.text = "Correct"
+                PassTorF.append(true)
                 
                 
             }
             else
             {
-                result.text = "Incorrect, the correct answer is \"\(myStrings[current+2])\""
-                passTorF.append(false)
+                Result.text = "Incorrect, the correct answer is \"\(MyStrings[Current+2])\""
+                PassTorF.append(false)
 //-----------------------------Start: Attempt to save to wrong.txt------------------------------------------------
                 /*
                 //pick incorrect options goes here
@@ -166,7 +152,7 @@ class ViewControllerQuiz: UIViewController {
                 }
                 
                 //copy of the total context.
-                let toPutIn = myStrings[current]+" "+myStrings[current+1]+" "+myStrings[current+2]+"\n"
+                let toPutIn = MyStrings[Current]+" "+MyStrings[Current+1]+" "+MyStrings[Current+2]+"\n"
                 let writeString = originalText + "\n" + toPutIn
                 
                 do {
@@ -189,13 +175,13 @@ class ViewControllerQuiz: UIViewController {
 //----------------------------End: attempt to put in wrong.txt---------------------------------------
                 
             }
-            if(current == UserDefaults.standard.integer(forKey: "TargetProgress"))  //if it reach end of 1 session
+            if(Current == UserDefaults.standard.integer(forKey: "TARGETPROGRESS"))  //if it reach end of 1 session
             {
-                nextProb.isHidden = true
+                NextProb.isHidden = true
                 ConclusionUI.isHidden = false
-                if(current==myStrings.count-4)      //if it reach the end of 1 vocab set
+                if(Current==MyStrings.count-4)      //if it reach the end of 1 vocab set
                 {
-                    let defindedset=UserDefaults.standard.integer(forKey: "Vocabset")
+                    let defindedset=UserDefaults.standard.integer(forKey: "VOCABSET")
                     
                     let alert = UIAlertController(title: "Congraduation", message: "You finished the set \(LoadVocab.VocabSet[defindedset])", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
@@ -207,51 +193,49 @@ class ViewControllerQuiz: UIViewController {
                     }
                 }
                 else{
-                    UserDefaults.standard.set(true, forKey: "NeedNewSet")
-                    UserDefaults.standard.set(false, forKey: "NavToQuiz")
-                    UserDefaults.standard.set(true, forKey: "NavToStudy")
+                    UserDefaults.standard.set(true, forKey: "NEEDNEWSET")
+                    UserDefaults.standard.set(false, forKey: "NAVTOQUIZ")
+                    UserDefaults.standard.set(true, forKey: "NAVTOSTUDY")
                 }
                 
             }
             else{
-                nextProb.isHidden = false
+                NextProb.isHidden = false
             }
             
         }
     }
     
-    @IBAction func nextProb(_ sender: Any)
+    @IBAction func NextProb(_ sender: Any)
     {
-        current = current + 3
-        randomIndexArray = []
-        result.isHidden = true
-        nextProb.isHidden = true
+        Current = Current + 3
+        RandomIndexArray = []
+        Result.isHidden = true
+        NextProb.isHidden = true
         
-        correctAnswer=randomAnswerPlace()       //get correct answer place in 1-4
-        randomAnswer()      //get mystrings index for wrong answer
-        putrandomanswer()       //set title for answers
+        CorrectAnswer=RandomAnswerPlace()       //get correct answer place in 1-4
+        PickRandomDef()      //get MyStrings index for wrong answer
+        PutRandomAnswer()       //set title for answers
         DisplayNewSet()
         
     }
     
     func DisplayNewSet()
     {
-        label_Character.text=myStrings[current]
-        passChar.append(myStrings[current])
-        label_PInYin.text=myStrings[current+1]
-        randomAnswer()
+        Label_Character.text=MyStrings[Current]
+        PassChar.append(MyStrings[Current])
+        Label_PInYin.text=MyStrings[Current+1]
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="QuizToConclusion")
+        if(segue.identifier=="QUIZTOCONCLUSION")
         {
             let passData = segue.destination as! ViewControllerConclusion
-            passData.passChar = passChar
-            passData.passTorF = passTorF
+            passData.PassChar = PassChar
+            passData.PassTorF = PassTorF
             
         }
     }
-    
-
 }
+
 

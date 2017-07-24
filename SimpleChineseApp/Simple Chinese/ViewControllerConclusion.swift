@@ -12,55 +12,61 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
 {
     
     
-    var passChar : [String] = []
-    var passTorF : [Bool] = []
-    @IBOutlet weak var correctRate: UILabel!
+    var PassChar : [String] = []
+    var PassTorF : [Bool] = []
+    @IBOutlet weak var CorrectRate: UILabel!
     
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return (passChar.count)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return (PassChar.count)
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            as! ConclusionCell
-        if(passTorF[indexPath.row] == true)
-        {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ConclusionCell
+        if(PassTorF[indexPath.row] == true){
             cell.TorF.text="⭕️"
         }
-        else
-        {
+        else{
             cell.TorF.text="❌"
         }
-        cell.Character.text=passChar[indexPath.row]
-        
+        cell.Character.text=PassChar[indexPath.row]
         return(cell)
     }
     
-    func calculateCorrectRate(){
+    func CalculateCorrectRate(){
         var numOfCorrect = 0
-        //var correctRateCalcuate : Double = 0
-        for i in 0...passTorF.count-1
-        {
-            if(passTorF[i] == true)
-            {
+        for i in 0...PassTorF.count-1{
+            if(PassTorF[i] == true){
                 numOfCorrect += 1
             }
         }
-        correctRate.text = "You got " + String(numOfCorrect) + "/" + String(passTorF.count) + " correct"
+        CorrectRate.text = "You got " + String(numOfCorrect) + "/" + String(PassTorF.count) + " correct"
     }
     
-    override func viewDidLoad() {
+    
+    func TruePercent(array: [Bool]) -> Int {
+        var truecounter=0
+        for i in 0...array.count-1{
+            if(array[i]==true){
+                truecounter+=1
+            }
+        }
+        return (truecounter*100)/array.count;
+    }
+    
+    
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
-        calculateCorrectRate()
+        CalculateCorrectRate()
         // Do any additional setup after loading the view.
     }
-}
-/*
- extension func TrueRateInArray(inputarray: [Bool]) -> Int {
-    return 0
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+        
+        
+    }
 }
-*/
