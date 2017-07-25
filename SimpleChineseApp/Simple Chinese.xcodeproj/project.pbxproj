@@ -58,7 +58,7 @@
 		FB8FBAC01F1C8E0500385D15 /* ViewControllerConclusion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConclusion.swift; sourceTree = "<group>"; };
 		FB91B5E61F1C042400CF109C /* OverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		FB91B5E81F1C048400CF109C /* OverViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewCell.swift; sourceTree = "<group>"; };
-		FBCFF3121F2563B200B2595E /* PercentTester.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PercentTester.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBCFF3121F2563B200B2595E /* Testing.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Testing.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBCFF3141F2563B200B2595E /* PercentTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentTester.swift; sourceTree = "<group>"; };
 		FBCFF3161F2563B200B2595E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBD05EB21F197C64000A9B92 /* vpd_vocabsetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vpd_vocabsetController.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 			children = (
 				29BE61B11F1425D200D29511 /* Assets.xcassets */,
 				29BE61A71F1425D200D29511 /* Simple Chinese.app */,
-				FBCFF3121F2563B200B2595E /* PercentTester.xctest */,
+				FBCFF3121F2563B200B2595E /* Testing.xctest */,
 			);
 			name = Products;
 			path = ..;
@@ -167,9 +167,9 @@
 			productReference = 29BE61A71F1425D200D29511 /* Simple Chinese.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FBCFF3111F2563B200B2595E /* PercentTester */ = {
+		FBCFF3111F2563B200B2595E /* Testing */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "PercentTester" */;
+			buildConfigurationList = FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "Testing" */;
 			buildPhases = (
 				FBCFF30E1F2563B200B2595E /* Sources */,
 				FBCFF30F1F2563B200B2595E /* Frameworks */,
@@ -180,9 +180,9 @@
 			dependencies = (
 				FBCFF3181F2563B200B2595E /* PBXTargetDependency */,
 			);
-			name = PercentTester;
+			name = Testing;
 			productName = PercentTester;
-			productReference = FBCFF3121F2563B200B2595E /* PercentTester.xctest */;
+			productReference = FBCFF3121F2563B200B2595E /* Testing.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +220,7 @@
 			projectRoot = "";
 			targets = (
 				29BE61A61F1425D200D29511 /* Simple Chinese */,
-				FBCFF3111F2563B200B2595E /* PercentTester */,
+				FBCFF3111F2563B200B2595E /* Testing */,
 			);
 		};
 /* End PBXProject section */
@@ -472,7 +472,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "PercentTester" */ = {
+		FBCFF3191F2563B200B2595E /* Build configuration list for PBXNativeTarget "Testing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FBCFF31A1F2563B200B2595E /* Debug */,
