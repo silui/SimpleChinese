@@ -1,4 +1,5 @@
-
+//ViewControllerQuiz.swift
+//Controller class for Quiz UI
 import UIKit
 
 class ViewControllerQuiz: UIViewController {
@@ -20,7 +21,7 @@ class ViewControllerQuiz: UIViewController {
     
     var MyStrings : [String]=[]
     
-    var RandomIndexArray :[Int]=[]
+    var RandomIndexArray :[Int]=[]      //array that stores randomly generated mystrings index
     var Current=0           //mystring index for current char
     
     var PassChar :[String] = []
@@ -53,10 +54,10 @@ class ViewControllerQuiz: UIViewController {
     
     func PickRandomDef(){       //gen 3 random MyStrings value that are not the same with current and each other
         let upperbound=UInt32((MyStrings.count-3)/3)
-        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
-        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
-        RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
-        
+        for _ in 0...2{
+            RandomIndexArray.append(3*Int(arc4random_uniform(upperbound))+2)
+            
+        }
         while(DoesArrayContainDuplicate(array: RandomIndexArray)==true){
             for i in 0...2{
                 RandomIndexArray[i]=3*Int(arc4random_uniform(upperbound))+2
@@ -64,7 +65,7 @@ class ViewControllerQuiz: UIViewController {
         }
     }
     
-    func DoesArrayContainDuplicate(array: [Int])->Bool{      //helper function for PickRandomDef()
+    func DoesArrayContainDuplicate(array: [Int])->Bool{      //helper function for PickRandomDef() that checks if random value contains dublicate and same with current
         for a in 0...array.count-1{
             if(array[a]==Current+2){
                 return true
@@ -80,7 +81,7 @@ class ViewControllerQuiz: UIViewController {
         return false
     }
     
-    //By using correctAnswer variable, we can put answers in random places
+    //By using PickRandomDef variable, we can put answers in random places
     func PutRandomAnswer(){
         var arrayWalker=0
         if(CorrectAnswer==1){
@@ -113,13 +114,13 @@ class ViewControllerQuiz: UIViewController {
         }
     }
     
-    
+    //random pick value 1-4
     func RandomAnswerPlace()->Int{
         let randomPlace = arc4random_uniform(4) + 1
         return Int(randomPlace)
-        //随机return1-4的value
     }
     
+    //trigger function for picking answer
     @IBAction func PickAnswer(_ sender: Any){
         if(Result.isHidden == true){
             let Answertag:Int = (sender as AnyObject).tag
@@ -127,68 +128,22 @@ class ViewControllerQuiz: UIViewController {
             if Answertag == CorrectAnswer{
                 Result.text = "Correct"
                 PassTorF.append(true)
-                
-                
             }
-            else
-            {
+            else{
                 Result.text = "Incorrect, the correct answer is \"\(MyStrings[Current+2])\""
                 PassTorF.append(false)
-//-----------------------------Start: Attempt to save to wrong.txt------------------------------------------------
-                /*
-                //pick incorrect options goes here
-                let fileName = "Test1"
-                let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                
-                let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
-                print("FilePath: \(fileURL.path)")
-                
-                //copy the previous text content
-                var originalText = ""
-                do {
-                    originalText = try String(contentsOf: fileURL, encoding: String.Encoding.utf8)
-                } catch let error as NSError {
-                    print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
-                }
-                
-                //copy of the total context.
-                let toPutIn = MyStrings[Current]+" "+MyStrings[Current+1]+" "+MyStrings[Current+2]+"\n"
-                let writeString = originalText + "\n" + toPutIn
-                
-                do {
-                    // Write to the file
-                    try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-                } catch let error as NSError {
-                    print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
-                }
-                
-                var readString = "" // Used to store the file contents
-                do {
-                    // Read the file contents
-                    readString = try String(contentsOf: fileURL)
-                } catch let error as NSError {
-                    print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
-                }
-                print("File Text: \(readString)")
-                //end of list incorrect char
- */
-//----------------------------End: attempt to put in wrong.txt---------------------------------------
-                
+               AddToWrongList(currentarg: Current, stringarray: MyStrings)
             }
-            if(Current == UserDefaults.standard.integer(forKey: "TARGETPROGRESS"))  //if it reach end of 1 session
-            {
+            if(Current == UserDefaults.standard.integer(forKey: "TARGETPROGRESS")){
+                //if it reach end of 1 session
                 NextProb.isHidden = true
                 ConclusionUI.isHidden = false
-                if(Current==MyStrings.count-4)      //if it reach the end of 1 vocab set
-                {
+                if(Current==MyStrings.count-4){      //if it reach the end of 1 vocab set
                     let defindedset=UserDefaults.standard.integer(forKey: "VOCABSET")
-                    
                     let alert = UIAlertController(title: "Congraduation", message: "You finished the set \(LoadVocab.VocabSet[defindedset])", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                    
-                    for key in Array(UserDefaults.standard.dictionaryRepresentation().keys)
-                    {
+                    for key in Array(UserDefaults.standard.dictionaryRepresentation().keys){
                         UserDefaults.standard.removeObject(forKey: key)
                     }
                 }
@@ -197,7 +152,6 @@ class ViewControllerQuiz: UIViewController {
                     UserDefaults.standard.set(false, forKey: "NAVTOQUIZ")
                     UserDefaults.standard.set(true, forKey: "NAVTOSTUDY")
                 }
-                
             }
             else{
                 NextProb.isHidden = false
@@ -206,6 +160,35 @@ class ViewControllerQuiz: UIViewController {
         }
     }
     
+    //helperfunction that adds
+    func AddToWrongList(currentarg: Int, stringarray: [String])
+    {
+        //pick incorrect options goes here
+        let fileName = "wrong"
+        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        let fileURL = DocumentDirURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        //copy the previous text content
+        var originalText = ""
+        do {
+            originalText = try String(contentsOf: fileURL, encoding: String.Encoding.utf8)
+        } catch let error as NSError {
+            print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+        
+        //copy of the total context.
+        let toPutIn = stringarray[currentarg]+"      "+stringarray[currentarg+1]+"        "+stringarray[currentarg+2]+"\n"
+        let writeString = originalText + "\n" + toPutIn
+        
+        do {
+            // Write to the file
+            try writeString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+        } catch let error as NSError {
+            print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+    }
+    
+    //trigger function for next button
     @IBAction func NextProb(_ sender: Any)
     {
         Current = Current + 3
@@ -220,13 +203,15 @@ class ViewControllerQuiz: UIViewController {
         
     }
     
+    //helper function to change char and PY field text
     func DisplayNewSet()
     {
         Label_Character.text=MyStrings[Current]
         PassChar.append(MyStrings[Current])
         Label_PInYin.text=MyStrings[Current+1]
     }
-
+    
+    //segue function to pass 2 array into next controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="QUIZTOCONCLUSION")
         {

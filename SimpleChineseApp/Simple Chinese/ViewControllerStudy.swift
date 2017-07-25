@@ -1,32 +1,29 @@
-//
-//  ViewControllerStudy.swift
-//  Simple Chinese
-//
-//  Created by Yibo Fu on 7/11/17.
-//  Copyright © 2017 Luming Wang. All rights reserved.
-//
+//ViewControllerStudy.swift
+//Controller class for Study UI
 
-import UIKit
 import UIKit
 import AVFoundation
 import Speech
 class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
 
-    var Synthesizer = AVSpeechSynthesizer()
+    let Synthesizer = AVSpeechSynthesizer()     //global variable for sound
     @IBOutlet weak var PinyinField: UILabel!
     @IBOutlet weak var DefField: UILabel!
     @IBOutlet weak var CharField: UILabel!
     @IBOutlet weak var QuizButton: UIButton!
-    var MyStrings : [String]=[]
+    var MyStrings : [String]=[]         //global that store parsed txt file
     
     @IBOutlet weak var NextBut: UIButton!
     
     @IBOutlet weak var PrevBut: UIButton!
     
+    //Quiz button trigger
     @IBAction func QuizButtonPressed(_ sender: Any){
         UserDefaults.standard.set(true, forKey: "NAVTOQUIZ")
         UserDefaults.standard.set(false, forKey: "NAVTOSTUDY")
     }
+    
+    //PrevVocab button trigger
     @IBAction func PrevVocab(_ sender: Any){
         let lowerbound=UserDefaults.standard.integer(forKey: "LOWERBOUND")
         let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
@@ -38,11 +35,8 @@ class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
         DisplayNewSet()
         Checkbutton()
     }
-
-    @IBAction func Speak(_ sender: UIButton) {
-        let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
-        Speakfunction(Chinese: MyStrings[current])
-    }
+    
+    //NextVocab button trigger
     @IBAction func NextVocab(_ sender: Any){
         let target=UserDefaults.standard.integer(forKey: "TARGETPROGRESS")
         let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
@@ -54,6 +48,13 @@ class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
         Checkbutton()
     }
     
+    //Speak button trigger
+    @IBAction func Speak(_ sender: UIButton) {
+        let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
+        Speakfunction(Chinese: MyStrings[current])
+    }
+    
+    //helper function to update char, PY and def field
     func DisplayNewSet()
     {
         let arraywalker=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
@@ -62,6 +63,8 @@ class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
         DefField.text=MyStrings[arraywalker+2]
         
     }
+    
+    //helper function to check what button need to be shown
     func Checkbutton()
     {
         let lower=UserDefaults.standard.integer(forKey: "LOWERBOUND")
@@ -105,6 +108,8 @@ class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
         DisplayNewSet()
         Checkbutton()
     }
+    
+    //golbal function that takes String as input and output sound
     func Speakfunction(Chinese: String){
         let textparah = Chinese.components(separatedBy: "\n")
         if !self.Synthesizer.isSpeaking{

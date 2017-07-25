@@ -1,11 +1,5 @@
-//
-//  ViewControllerConclusion.swift
-//  Simple Chinese
-//
-//  Created by Luming Wang on 7/16/17.
-//  Copyright © 2017 Luming Wang. All rights reserved.
-//
-
+//ViewControllerConclusion.swift
+//Controller class form the conclusion UI
 import UIKit
 
 class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableViewDataSource
@@ -16,11 +10,10 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
     var PassTorF : [Bool] = []
     @IBOutlet weak var CorrectRate: UILabel!
     
-    
+    //tableview definition
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return (PassChar.count)
     }
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ConclusionCell
         if(PassTorF[indexPath.row] == true){
@@ -33,7 +26,8 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         return(cell)
     }
     
-    func CalculateCorrectRate(){
+    //Used to display how many you got right our of all the tested character
+    func DisplayCorrectRate(){
         var numOfCorrect = 0
         for i in 0...PassTorF.count-1{
             if(PassTorF[i] == true){
@@ -43,7 +37,7 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         CorrectRate.text = "You got " + String(numOfCorrect) + "/" + String(PassTorF.count) + " correct"
     }
     
-    
+    //calculate the percentage of true in a bool array
     func TruePercent(array: [Bool]) -> Int {
         var truecounter=0
         for i in 0...array.count-1{
@@ -55,18 +49,9 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    
+    //function execute when loading controller
     override func viewDidLoad(){
         super.viewDidLoad()
-        CalculateCorrectRate()
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        
-        
+        DisplayCorrectRate()
     }
 }

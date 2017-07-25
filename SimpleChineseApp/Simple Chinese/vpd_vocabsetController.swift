@@ -1,16 +1,12 @@
-//
 //  vpd_vocabsetController.swift
-//  Simple Chinese
-//
-//  Created by Tian Qiu on 7/14/17.
-//  Copyright © 2017 Luming Wang. All rights reserved.
-//
-
+//  controller class for vpd selector
 import UIKit
 
 class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
-    let VocabSet=LoadVocab.VocabSet
+    let VocabSet=LoadVocab.VocabSet     //String array for available vocab set
+    
+    //pickerview definition
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -23,15 +19,18 @@ class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPicker
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         UserDefaults.standard.set(row+1, forKey: "VOCABSET")        //memorize user chosen vocab set
     }
-    @IBOutlet weak var Vps_display: UILabel!
-    @IBOutlet weak var Vps_slider: UISlider!
-    var Vps=25
     
+    @IBOutlet weak var Vps_display: UILabel!    
+    @IBOutlet weak var Vps_slider: UISlider!
+    var Vps=25         //global variable for words per session
+    
+    //Slider trigger that updates Vps display
     @IBAction func Vps_slider_slide(_ sender: Any) {
         Vps = Int(Vps_slider.value)
         Vps_display.text="\(Vps) words per session"
     }
     
+    //segue preparation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         UserDefaults.standard.set(true, forKey: "NAVTOSTUDY")
         UserDefaults.standard.set(false, forKey: "NAVTOQUIZ")
@@ -48,7 +47,7 @@ class vpd_vocabsetController: UIViewController, UIPickerViewDataSource, UIPicker
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set(1, forKey: "VOCABSET")      //in case user didn't roll the
+        UserDefaults.standard.set(1, forKey: "VOCABSET")   //in case user didn't touch PickerView
     }
 
 }

@@ -1,10 +1,5 @@
-//
 //  OverViewController.swift
-//  Simple Chinese
-//
-//  Created by Tian Qiu on 7/16/17.
-//  Copyright © 2017 Luming Wang. All rights reserved.
-//
+//  Controller class for Overview UI
 
 import UIKit
 
@@ -17,6 +12,7 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var PickerView: UIPickerView!
     @IBOutlet weak var TableView: UITableView!
     
+    //PickerView definition
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -45,11 +41,10 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
         TableView.reloadData()
     }
 
-    
+    //TableView definition
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MyStrings.count/3
     }
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
 
@@ -60,10 +55,10 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+    //Controller loading function
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //load vocab set into MyStrings array
         LoadVocab.PutInArrayCustom(ArrayRef: &MyStrings, set: Defaultselect)
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,21 +66,11 @@ class OverViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! OverViewCell
-            
             cell.Char_Field.text=MyStrings[indexPath.row*3]
             cell.PinYin_Field.text=MyStrings[indexPath.row*3+1]
             cell.Def_Field.text=MyStrings[indexPath.row*3+2]
             return cell
         }
         TableView.reloadData()
-
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
 }
