@@ -1,1 +1,2 @@
-unittest for TruePercent function in ViewControllerConclusion() class
+UnitTest for TruePercent function in ViewControllerConclusion class
+UnitTest for NumOfTrueInArray function in VIEW ControllerConclusion class

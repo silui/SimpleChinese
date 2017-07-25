@@ -26,15 +26,16 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
         return(cell)
     }
     
-    //Used to display how many you got right our of all the tested character
-    func DisplayCorrectRate(){
+    //calculate number of true in a boolean array
+    func NumOfTrueInArray(array: [Bool])->Int{
         var numOfCorrect = 0
-        for i in 0...PassTorF.count-1{
-            if(PassTorF[i] == true){
+        for i in 0...array.count-1{
+            if(array[i] == true){
                 numOfCorrect += 1
             }
         }
-        CorrectRate.text = "You got " + String(numOfCorrect) + "/" + String(PassTorF.count) + " correct"
+        return numOfCorrect
+
     }
     
     //calculate the percentage of true in a bool array
@@ -52,6 +53,7 @@ class ViewControllerConclusion: UIViewController, UITableViewDelegate, UITableVi
     //function execute when loading controller
     override func viewDidLoad(){
         super.viewDidLoad()
-        DisplayCorrectRate()
+        let text: String="You got \(String(NumOfTrueInArray(array: PassTorF)))/\(String(PassTorF.count))"
+        CorrectRate.text=text
     }
 }

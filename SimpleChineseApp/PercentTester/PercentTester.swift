@@ -12,7 +12,7 @@ class PercentTester: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
     }
     
     override func tearDown() {
@@ -25,7 +25,11 @@ class PercentTester: XCTestCase {
         let testarray: [Bool] = [true, false, true, false]
         let theorticalPercet: Int = 50
         XCTAssertEqual(myClass.TruePercent(array: testarray),theorticalPercet )
-        
     }
-    
+    func testTcounter(){
+        let myClass=ViewControllerConclusion()
+        let testarray: [Bool] = [true, false, true, true, true]
+        let theorticalTrue: Int = 4
+        XCTAssertEqual(myClass.NumOfTrueInArray(array: testarray), theorticalTrue)
+    }
 }
