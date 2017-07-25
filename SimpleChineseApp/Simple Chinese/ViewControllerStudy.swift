@@ -25,27 +25,30 @@ class ViewControllerStudy: UIViewController, AVSpeechSynthesizerDelegate{
     
     //PrevVocab button trigger
     @IBAction func PrevVocab(_ sender: Any){
-        let lowerbound=UserDefaults.standard.integer(forKey: "LOWERBOUND")
-        let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
-        if(current==lowerbound){
-            print("ERROR: Class: ViewControllerStudy, func:PrevVocab, cond: current=lowerbound\nComment: prevbutton should already be hidden when lowerbound=current")
-            
+        if(PrevBut.isHidden==false){
+            let lowerbound=UserDefaults.standard.integer(forKey: "LOWERBOUND")
+            let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
+            if(current==lowerbound){
+                print("ERROR: Class: ViewControllerStudy, func:PrevVocab, cond: current=lowerbound\nComment: prevbutton should already be hidden when lowerbound=current")
+            }
+            UserDefaults.standard.set(current-3, forKey: "ARRAYPROGRESS")
+            DisplayNewSet()
+            Checkbutton()
         }
-        UserDefaults.standard.set(current-3, forKey: "ARRAYPROGRESS")
-        DisplayNewSet()
-        Checkbutton()
     }
     
     //NextVocab button trigger
     @IBAction func NextVocab(_ sender: Any){
-        let target=UserDefaults.standard.integer(forKey: "TARGETPROGRESS")
-        let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
-        if(target==current){
-            print("ERROR: Class: ViewControllerStudy, func:NextVocab, cond: target=current\nComment: nextbutton should already be hidden when target=current")
+        if(NextBut.isHidden==false){
+            let target=UserDefaults.standard.integer(forKey: "TARGETPROGRESS")
+            let current=UserDefaults.standard.integer(forKey: "ARRAYPROGRESS")
+            if(target==current){
+                print("ERROR: Class: ViewControllerStudy, func:NextVocab, cond: target=current\nComment: nextbutton should already be hidden when target=current")
+            }
+            UserDefaults.standard.set(current+3, forKey: "ARRAYPROGRESS")
+            DisplayNewSet()
+            Checkbutton()
         }
-        UserDefaults.standard.set(current+3, forKey: "ARRAYPROGRESS")
-        DisplayNewSet()
-        Checkbutton()
     }
     
     //Speak button trigger
