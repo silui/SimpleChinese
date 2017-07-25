@@ -140,7 +140,7 @@ class ViewControllerQuiz: UIViewController {
                 ConclusionUI.isHidden = false
                 if(Current==MyStrings.count-4){      //if it reach the end of 1 vocab set
                     let defindedset=UserDefaults.standard.integer(forKey: "VOCABSET")
-                    let alert = UIAlertController(title: "Congraduation", message: "You finished the set \(LoadVocab.VocabSet[defindedset])", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Congratulation", message: "You finished the set \(LoadVocab.VocabSet[defindedset-1])", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     for key in Array(UserDefaults.standard.dictionaryRepresentation().keys){
